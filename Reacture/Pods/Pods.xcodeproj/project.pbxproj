@@ -1,0 +1,938 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03BD9E30E8B2B7772D75FA81C217207B /* LKAppUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4684E2B1CAD5A74AAD0D4CAA65E50E7B /* LKAppUser.m */; };
+		06088AB83FEAD567E45975FBEF389BB1 /* LKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A1F1311065B6DBC2F1AE8F6A8AF91F5 /* LKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06A14A7054104AB399849315DAFC7D44 /* LKAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B379DFB8AAA639258B7F9E3B27A91127 /* LKAnalytics.m */; };
+		0CC050626015BA0779A9EBD0DD161FE5 /* LKPopCustomSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A60A7D72652257026099E894246CDF /* LKPopCustomSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12A1E065AAEEB419EF95B88206FAE43F /* LKCardPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9610D537C3A92547FE3FE51364B3A5 /* LKCardPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13886B048389E1E7BAD6F9467143BE45 /* LKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0448C2D1C6DD59014D15DF606843B629 /* LKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1798F75B366CAC62C05320A644F6F15F /* LKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E60136D1950B244DCBE4EDD06072EEA /* LKNavigationController.m */; };
+		1952D8022F86A564E903B5A643ADD2CD /* LKLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F13DA3D968CD5827B6B8AA0D1C50A1DD /* LKLabel.m */; };
+		1E2BEC5F2C4318FEF67EFA6E56E7E78A /* lk_unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1C5217FDC6733E1CFE0099E50E58EBE9 /* lk_unzip.c */; };
+		2A14B69761ACD7A7007CC96848E289E8 /* LaunchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EF32584B50B2D8A3988CEEABB0789A30 /* LaunchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F23786A1B4106C2F3E75E9BA9E7C234 /* LK_SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E1297E491DD0F907C3D5A20AB8F9AD6D /* LK_SSZipArchive.m */; };
+		3047E9276D44AF17179B964BEC0F89AB /* LaunchKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27666228A5AFD922548C8CC2757239 /* LaunchKit.m */; };
+		30905662B350A5A4BEC50C0863FD0B2D /* LKUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5128A841BCA44FD9753E756C9A90BA87 /* LKUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		399BE682090A4929113D5ED1E499363E /* NSDictionary+LKFormEncoded.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A01A78BFCEE42276D7A38E7C4BBD6C /* NSDictionary+LKFormEncoded.m */; };
+		3AECEB9F7EE211C61DEFDCC39A9AA593 /* LKOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EAD2E6B930D4B3E055E1206909E2E2 /* LKOnboardingViewController.m */; };
+		3E8764FFA467BB5DD62637AFC82DCF17 /* Pods-FlipPic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA911355D3F7D5F03BAB061B8747A0B2 /* Pods-FlipPic-dummy.m */; };
+		41DA7AB8E0E5C1D4B82F2D28DD6DBC61 /* LKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0216A46933851031D61C1BC42C9B7F86 /* LKLog.m */; };
+		429E42D524146408631309A58E3AE3F0 /* LKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E121ADA4A65A963A3A7CCFC983E468A /* LKGradientView.m */; };
+		4631E2D1EC4DBBD77C2461A35E998D86 /* LKPushCustomSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 111EB49DB6E8A7E0631428C231331583 /* LKPushCustomSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49259162852A34B0F055A9FED2967D92 /* UIView+LKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C32652C8879AF6496E1A7D4621C16 /* UIView+LKAdditions.m */; };
+		5007CD49F7FAC251ECF8583976D9F9E1 /* LKPagedUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FEEF858D51E59F99FF3E6A3CE36FD34C /* LKPagedUIViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		531952FA80D33A73F03468728CEA4A2A /* NSString+LKURLEncoded.h in Headers */ = {isa = PBXBuildFile; fileRef = EE94233232D208BFE70B7F1BAB4667D2 /* NSString+LKURLEncoded.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5355D7938DB8AD72CDF2939A0619F3E4 /* lk_crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC96C908CC1A79107701AE47D18BA69 /* lk_crypt.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5C31D6BADFFB6877E36A763FA6A75090 /* LKBundleInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BBD7EC816027102180234389B60DB9 /* LKBundleInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		600280E9D36889BC66EEFF51E9285A03 /* lk_mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 08E0C956C04F018F5622CD512D2A29DB /* lk_mztools.c */; };
+		62712B3677526C2519DA487617170B5D /* LKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9F06635D8487E68EF40818859D33F4 /* LKConfig.m */; };
+		62E9575AC80368AD75B44EEA5371E867 /* LKCardPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA004CD18080E625814583779EFF188 /* LKCardPresentationController.m */; };
+		69F9D6E2BC900A5010AA162AD2A15FF7 /* LKGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 22916FF22F7472A01B29DF6DA5F199D5 /* LKGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D3C4FBD6D64AD22B095FDE73857186 /* NSString+LKURLEncoded.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DECD3DA4F2B82974D1575F0F151BB5 /* NSString+LKURLEncoded.m */; };
+		7AC3148057434AEA09867A0485F1334F /* NSDictionary+LKFormEncoded.h in Headers */ = {isa = PBXBuildFile; fileRef = 196794ED242A0F3F45AD5964F1BA5CDC /* NSDictionary+LKFormEncoded.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CD05ACFC5721EF1A5CBC9F4F552A944 /* LKLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2955C187965DB0D87C9E22F9D5FDFA27 /* LKLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DF7E723FB2644C2A7553D8DA2AA0CF5 /* LKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 134E668F685FCB0F07B34012EC0E9979 /* LKImageView.m */; };
+		80CDFA0610A1D3E9918A22C678B7C448 /* LKPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5B522E91444F0A159762FC8154A1CD /* LKPageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88C7602668FF74657C1BF70DEE85986E /* LKTrackOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 930595A2FD0C490BB3635C8E777C1F97 /* LKTrackOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90960657A9CD1044F855100C9EB7B204 /* LKPopCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 445724D6EF4DE53765739AC1CB7AA9C4 /* LKPopCustomSegue.m */; };
+		9267281E6D3DA782BDF15DE48B36A35C /* LaunchKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9C9CC17F35CCF21EDDC6EFA5D95BDB8 /* LaunchKitResources.bundle */; };
+		96743706EF642D56369D3FEAFDF5BA0A /* LaunchKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E24727499444158B3D7D5287F1F572 /* LaunchKit-dummy.m */; };
+		97F275549805BA444803C6BB04C0BA27 /* lk_unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C159F95B013BDF9F61284F8DA0E7FDE /* lk_unzip.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9804004EBECEDB3BC878E993F9E5ABA6 /* LKNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2A5A86862B709924FDEAC08EBEF604 /* LKNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C6BD79BF11521E06C214603E62F4F2F /* LKBundlesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E108E95E1A4DE200395AC80C2A54E2B1 /* LKBundlesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D45AFBFA2375F1BBD189ADE13B690EF /* LKOnboardingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D1F592FE45AFCD9ECB006E525216F24 /* LKOnboardingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D78EBBB0F7CA41E6A1A65753D7284F6 /* LKFadeCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E081AE425AF3EF6E5CD8870299E7CA /* LKFadeCustomSegue.m */; };
+		9FFCAE138135CBE8260DA153F1F72771 /* LKAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD9EBDB252B92EF7A88010A297F731 /* LKAPIClient.m */; };
+		A707596AE6C3AE4C3DC56D2839CFAF02 /* LKBundlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F26E3AA13811019771B0E49EA1434 /* LKBundlesManager.m */; };
+		AC58DBA72E045211D206DD952AECE976 /* LKPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD94E3E770D491657BAE35B5ECCCDF3 /* LKPageControl.m */; };
+		ADC3641693C8DFD9B122EA3883A33475 /* LaunchKitShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A07CF9CA78AAD71B90D19F01DA0EB3E /* LaunchKitShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE81AB0E065ECDB069533ACA8A35ED23 /* LKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B8646861092E826E175798D7C20DB8 /* LKViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B04DDC164B765D959C7A737C7BA4A15C /* UIView+LKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 36B33FF54D279B0E16DBC8DD461A852A /* UIView+LKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1081926424C047CAD47D5344FEFBFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */; };
+		B6D0A813CFCC1DDF485CFDD8C1972B96 /* LKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C1C84CB7DFF1D256D56C15DC27298 /* LKUtils.m */; };
+		BC558B13DD884A820B992BC2D7DF0654 /* LKAppUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DC92ED296582F7B2A8030EC16AB75CC /* LKAppUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C251AAF41E97E676E34C3C0BC63C81F4 /* lk_ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 387465F56358D30DCFEDADF6C2770791 /* lk_ioapi.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C3C298D28DFB0AA7DC08CCD95026B8B3 /* lk_mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FD02186C76908DFB33F16A2061E6C28 /* lk_mztools.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C6699F5DCA707038A29D6AA497EA52D9 /* LKAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = FDAD92FD18DF69FDDB3C3E6DCAD2196D /* LKAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6A16FAAA460F75F1283FC95D8F412D3 /* LKUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A027F562D0B5148142B5BBA5FDCAE7 /* LKUIManager.m */; };
+		C85FA5FA3CECC82EBD3E491B7E7BFFA4 /* LaunchKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FF01D03B254F56C133DD45F446D0167 /* LaunchKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9069865FE0A384E71CD26C85CC02106 /* LKPushCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1483F5C95E39660826947EAAAAFC628A /* LKPushCustomSegue.m */; };
+		CF4304F60AD4EB443D916F7FCE09F5B7 /* lk_zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67AEE39000C3A5BE789A1F68C6977699 /* lk_zip.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D0083010783014FD331F12E8D751BB76 /* Pods-FlipPic-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4A389032088F4651C2826B6421EB7FF /* Pods-FlipPic-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4A58767061820D7D4FD4901761B7922 /* LKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F09472E0E7B99A3ACFB744A2A961EA /* LKViewController.m */; };
+		D518271AB198D0C55ADBD8763F42B795 /* lk_ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = CEFC39053ED9FCE09C8E119BA19ED037 /* lk_ioapi.c */; };
+		D8F1C0A5D77CA91D41EB58CAECAA19E7 /* LKFadeCustomSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 19D161DFB89E7D083D8943FDB0E70D23 /* LKFadeCustomSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0B8A2625FC8EC9C6B39448DCD0AF6E2 /* LKTrackOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E4F9EE62149B3BA7A260E5CE2C16C /* LKTrackOperation.m */; };
+		E0C6969EA5901795DC7C9C380E1CDC11 /* LKSimpleStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBEE302331915657BD819FC6B52072 /* LKSimpleStackView.m */; };
+		E7377E61695D3F2905A29C2C2D6808BB /* LK_SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA7F4E9E59ED6412CFA748D76E9BDCB /* LK_SSZipArchive.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		E83D074E0FF8AF26A9EB58911E18C05D /* LKAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FDD27E5C9B2280C46DF18F7DE258AA /* LKAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8EFB1C1A6B1ABEBC4FAEF954262CCBA /* LKBundleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2646679D21481DB14217D80E494F567F /* LKBundleInfo.m */; };
+		EF00DF0F34A3F53E5791343BF9C132FF /* LKUIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B8DB7E14F100710D9F75E7A304A76 /* LKUIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F31A839FE4CA3C8387D68C22E042E325 /* LKImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C5E8E1C03D8F9706FF74075D28B253 /* LKImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F68D91400FBF147A678D066BAD1569D3 /* lk_zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 77E4C3342EC3133BF515B32B4810C3D2 /* lk_zip.c */; };
+		F7826DC5AAFFFCF692E8A0C74F857537 /* LKButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 568A0B0020EA97F5AF6FE4769D6C0AEA /* LKButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9736C1342E13127E601EF2B028543D2 /* LKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D587BF287B98D9ACFD3548DE321C9D22 /* LKButton.m */; };
+		FAF0518D72932D5A1C7B382E9DCF3AD9 /* LKPagedUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3710FBA36013607D723CBC1560DE2B0 /* LKPagedUIViewController.m */; };
+		FE0D0B63E5563F786953F899B5EEE78A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */; };
+		FEED14D7659DBB76B964AFBC08420C23 /* LKSimpleStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 245A262CE55E854D64AE076703556C9B /* LKSimpleStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		312160B4F877431DA89962BB731A48EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6347BABC009241CF3919941499776C40;
+			remoteInfo = "LaunchKit-LaunchKitResources";
+		};
+		C5ED620A3E1254029B5D11D9AF8B1C25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B430207B132208DA143D41AB4BF82C;
+			remoteInfo = LaunchKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0216A46933851031D61C1BC42C9B7F86 /* LKLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKLog.m; path = LaunchKit/Classes/LKLog.m; sourceTree = "<group>"; };
+		0448C2D1C6DD59014D15DF606843B629 /* LKConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKConfig.h; path = LaunchKit/Classes/Config/LKConfig.h; sourceTree = "<group>"; };
+		062556444FE9E3300F8E3C4B4C19AA58 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06A68C01FBE2DCC60B8786865A034A37 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		07E081AE425AF3EF6E5CD8870299E7CA /* LKFadeCustomSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKFadeCustomSegue.m; path = LaunchKit/Classes/UI/Components/LKFadeCustomSegue.m; sourceTree = "<group>"; };
+		0878E31B3A459ED559C1EB77F2C712A1 /* LaunchKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LaunchKit.modulemap; sourceTree = "<group>"; };
+		08E0C956C04F018F5622CD512D2A29DB /* lk_mztools.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lk_mztools.c; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_mztools.c; sourceTree = "<group>"; };
+		096C1C84CB7DFF1D256D56C15DC27298 /* LKUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKUtils.m; path = LaunchKit/Classes/LKUtils.m; sourceTree = "<group>"; };
+		0E60136D1950B244DCBE4EDD06072EEA /* LKNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKNavigationController.m; path = LaunchKit/Classes/UI/Components/LKNavigationController.m; sourceTree = "<group>"; };
+		111EB49DB6E8A7E0631428C231331583 /* LKPushCustomSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKPushCustomSegue.h; path = LaunchKit/Classes/UI/Components/LKPushCustomSegue.h; sourceTree = "<group>"; };
+		134E668F685FCB0F07B34012EC0E9979 /* LKImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKImageView.m; path = LaunchKit/Classes/UI/Components/LKImageView.m; sourceTree = "<group>"; };
+		1483F5C95E39660826947EAAAAFC628A /* LKPushCustomSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKPushCustomSegue.m; path = LaunchKit/Classes/UI/Components/LKPushCustomSegue.m; sourceTree = "<group>"; };
+		148DC995CA075A64A233FCDB46F7851A /* Pods-FlipPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlipPic.release.xcconfig"; sourceTree = "<group>"; };
+		14C5E8E1C03D8F9706FF74075D28B253 /* LKImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKImageView.h; path = LaunchKit/Classes/UI/Components/LKImageView.h; sourceTree = "<group>"; };
+		196794ED242A0F3F45AD5964F1BA5CDC /* NSDictionary+LKFormEncoded.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+LKFormEncoded.h"; path = "LaunchKit/Classes/NSDictionary+LKFormEncoded.h"; sourceTree = "<group>"; };
+		199C32652C8879AF6496E1A7D4621C16 /* UIView+LKAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+LKAdditions.m"; path = "LaunchKit/Classes/UI/Components/UIView+LKAdditions.m"; sourceTree = "<group>"; };
+		19D161DFB89E7D083D8943FDB0E70D23 /* LKFadeCustomSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKFadeCustomSegue.h; path = LaunchKit/Classes/UI/Components/LKFadeCustomSegue.h; sourceTree = "<group>"; };
+		1C5217FDC6733E1CFE0099E50E58EBE9 /* lk_unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lk_unzip.c; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_unzip.c; sourceTree = "<group>"; };
+		1E121ADA4A65A963A3A7CCFC983E468A /* LKGradientView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKGradientView.m; path = LaunchKit/Classes/UI/Components/LKGradientView.m; sourceTree = "<group>"; };
+		21DECD3DA4F2B82974D1575F0F151BB5 /* NSString+LKURLEncoded.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+LKURLEncoded.m"; path = "LaunchKit/Classes/NSString+LKURLEncoded.m"; sourceTree = "<group>"; };
+		22916FF22F7472A01B29DF6DA5F199D5 /* LKGradientView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKGradientView.h; path = LaunchKit/Classes/UI/Components/LKGradientView.h; sourceTree = "<group>"; };
+		245A262CE55E854D64AE076703556C9B /* LKSimpleStackView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKSimpleStackView.h; path = LaunchKit/Classes/UI/Components/LKSimpleStackView.h; sourceTree = "<group>"; };
+		2646679D21481DB14217D80E494F567F /* LKBundleInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKBundleInfo.m; path = LaunchKit/Classes/Bundles/LKBundleInfo.m; sourceTree = "<group>"; };
+		2955C187965DB0D87C9E22F9D5FDFA27 /* LKLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKLabel.h; path = LaunchKit/Classes/UI/Components/LKLabel.h; sourceTree = "<group>"; };
+		2B831D8F01A1373996D6BD0752BD7ED6 /* Pods-FlipPic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlipPic-frameworks.sh"; sourceTree = "<group>"; };
+		2DD94E3E770D491657BAE35B5ECCCDF3 /* LKPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKPageControl.m; path = LaunchKit/Classes/UI/Components/LKPageControl.m; sourceTree = "<group>"; };
+		2F2BB9E2CFBF20214E5D5E099E2A4F3D /* Pods_FlipPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlipPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B8646861092E826E175798D7C20DB8 /* LKViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKViewController.h; path = LaunchKit/Classes/UI/Components/LKViewController.h; sourceTree = "<group>"; };
+		36B33FF54D279B0E16DBC8DD461A852A /* UIView+LKAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+LKAdditions.h"; path = "LaunchKit/Classes/UI/Components/Public/UIView+LKAdditions.h"; sourceTree = "<group>"; };
+		387465F56358D30DCFEDADF6C2770791 /* lk_ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lk_ioapi.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_ioapi.h; sourceTree = "<group>"; };
+		3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3F0E4F9EE62149B3BA7A260E5CE2C16C /* LKTrackOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKTrackOperation.m; path = LaunchKit/Classes/LKTrackOperation.m; sourceTree = "<group>"; };
+		445724D6EF4DE53765739AC1CB7AA9C4 /* LKPopCustomSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKPopCustomSegue.m; path = LaunchKit/Classes/UI/Components/LKPopCustomSegue.m; sourceTree = "<group>"; };
+		4684E2B1CAD5A74AAD0D4CAA65E50E7B /* LKAppUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKAppUser.m; path = LaunchKit/Classes/Analytics/LKAppUser.m; sourceTree = "<group>"; };
+		5128A841BCA44FD9753E756C9A90BA87 /* LKUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKUtils.h; path = LaunchKit/Classes/LKUtils.h; sourceTree = "<group>"; };
+		568A0B0020EA97F5AF6FE4769D6C0AEA /* LKButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKButton.h; path = LaunchKit/Classes/UI/Components/LKButton.h; sourceTree = "<group>"; };
+		5A2F26E3AA13811019771B0E49EA1434 /* LKBundlesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKBundlesManager.m; path = LaunchKit/Classes/Bundles/LKBundlesManager.m; sourceTree = "<group>"; };
+		5AEBEE302331915657BD819FC6B52072 /* LKSimpleStackView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKSimpleStackView.m; path = LaunchKit/Classes/UI/Components/LKSimpleStackView.m; sourceTree = "<group>"; };
+		5D1F592FE45AFCD9ECB006E525216F24 /* LKOnboardingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKOnboardingViewController.h; path = LaunchKit/Classes/UI/Onboarding/LKOnboardingViewController.h; sourceTree = "<group>"; };
+		5D5B522E91444F0A159762FC8154A1CD /* LKPageControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKPageControl.h; path = LaunchKit/Classes/UI/Components/LKPageControl.h; sourceTree = "<group>"; };
+		6238F2EB40F10D8C31DBA82FA746958C /* Pods-FlipPic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlipPic-acknowledgements.plist"; sourceTree = "<group>"; };
+		66EAD2E6B930D4B3E055E1206909E2E2 /* LKOnboardingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKOnboardingViewController.m; path = LaunchKit/Classes/UI/Onboarding/LKOnboardingViewController.m; sourceTree = "<group>"; };
+		67AEE39000C3A5BE789A1F68C6977699 /* lk_zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lk_zip.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_zip.h; sourceTree = "<group>"; };
+		69FDD27E5C9B2280C46DF18F7DE258AA /* LKAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKAPIClient.h; path = LaunchKit/Classes/LKAPIClient.h; sourceTree = "<group>"; };
+		6A07CF9CA78AAD71B90D19F01DA0EB3E /* LaunchKitShared.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LaunchKitShared.h; path = LaunchKit/Classes/LaunchKitShared.h; sourceTree = "<group>"; };
+		6A1F1311065B6DBC2F1AE8F6A8AF91F5 /* LKLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKLog.h; path = LaunchKit/Classes/LKLog.h; sourceTree = "<group>"; };
+		71FD7D85F1D02F0056D68451CE08D9EA /* ResourceBundle-LaunchKitResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-LaunchKitResources-Info.plist"; sourceTree = "<group>"; };
+		72A60A7D72652257026099E894246CDF /* LKPopCustomSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKPopCustomSegue.h; path = LaunchKit/Classes/UI/Components/LKPopCustomSegue.h; sourceTree = "<group>"; };
+		77E4C3342EC3133BF515B32B4810C3D2 /* lk_zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lk_zip.c; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_zip.c; sourceTree = "<group>"; };
+		7CC96C908CC1A79107701AE47D18BA69 /* lk_crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lk_crypt.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_crypt.h; sourceTree = "<group>"; };
+		83F09472E0E7B99A3ACFB744A2A961EA /* LKViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKViewController.m; path = LaunchKit/Classes/UI/Components/LKViewController.m; sourceTree = "<group>"; };
+		8931DB44FCBDD8DA8F7A37A4852FFBCA /* Pods-FlipPic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlipPic-resources.sh"; sourceTree = "<group>"; };
+		8DC92ED296582F7B2A8030EC16AB75CC /* LKAppUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKAppUser.h; path = LaunchKit/Classes/Analytics/LKAppUser.h; sourceTree = "<group>"; };
+		8FD02186C76908DFB33F16A2061E6C28 /* lk_mztools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lk_mztools.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_mztools.h; sourceTree = "<group>"; };
+		8FF01D03B254F56C133DD45F446D0167 /* LaunchKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LaunchKit-umbrella.h"; sourceTree = "<group>"; };
+		930595A2FD0C490BB3635C8E777C1F97 /* LKTrackOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKTrackOperation.h; path = LaunchKit/Classes/LKTrackOperation.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AC6FDF3690286DEF2ECB5DF3500494F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		9C159F95B013BDF9F61284F8DA0E7FDE /* lk_unzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lk_unzip.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_unzip.h; sourceTree = "<group>"; };
+		A4A389032088F4651C2826B6421EB7FF /* Pods-FlipPic-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlipPic-umbrella.h"; sourceTree = "<group>"; };
+		A4FD9EBDB252B92EF7A88010A297F731 /* LKAPIClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKAPIClient.m; path = LaunchKit/Classes/LKAPIClient.m; sourceTree = "<group>"; };
+		A5E24727499444158B3D7D5287F1F572 /* LaunchKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LaunchKit-dummy.m"; sourceTree = "<group>"; };
+		A7BBD7EC816027102180234389B60DB9 /* LKBundleInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKBundleInfo.h; path = LaunchKit/Classes/Bundles/LKBundleInfo.h; sourceTree = "<group>"; };
+		AE27666228A5AFD922548C8CC2757239 /* LaunchKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LaunchKit.m; path = LaunchKit/Classes/LaunchKit.m; sourceTree = "<group>"; };
+		B13B8DB7E14F100710D9F75E7A304A76 /* LKUIManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKUIManager.h; path = LaunchKit/Classes/UI/LKUIManager.h; sourceTree = "<group>"; };
+		B2A027F562D0B5148142B5BBA5FDCAE7 /* LKUIManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKUIManager.m; path = LaunchKit/Classes/UI/LKUIManager.m; sourceTree = "<group>"; };
+		B379DFB8AAA639258B7F9E3B27A91127 /* LKAnalytics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKAnalytics.m; path = LaunchKit/Classes/Analytics/LKAnalytics.m; sourceTree = "<group>"; };
+		BA911355D3F7D5F03BAB061B8747A0B2 /* Pods-FlipPic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlipPic-dummy.m"; sourceTree = "<group>"; };
+		BCB5766DFB3D0D6A60813DF47C7F21BF /* LaunchKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LaunchKit-prefix.pch"; sourceTree = "<group>"; };
+		BF9610D537C3A92547FE3FE51364B3A5 /* LKCardPresentationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKCardPresentationController.h; path = LaunchKit/Classes/UI/Presentation/LKCardPresentationController.h; sourceTree = "<group>"; };
+		CC5C7B620CFBC28C33729B8839A6F683 /* LaunchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LaunchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEFC39053ED9FCE09C8E119BA19ED037 /* lk_ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = lk_ioapi.c; path = LaunchKit/Classes/ThirdParty/ZipArchive/minizip/lk_ioapi.c; sourceTree = "<group>"; };
+		D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LaunchKit.xcconfig; sourceTree = "<group>"; };
+		D587BF287B98D9ACFD3548DE321C9D22 /* LKButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKButton.m; path = LaunchKit/Classes/UI/Components/LKButton.m; sourceTree = "<group>"; };
+		D7A01A78BFCEE42276D7A38E7C4BBD6C /* NSDictionary+LKFormEncoded.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+LKFormEncoded.m"; path = "LaunchKit/Classes/NSDictionary+LKFormEncoded.m"; sourceTree = "<group>"; };
+		D9C9CC17F35CCF21EDDC6EFA5D95BDB8 /* LaunchKitResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchKitResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB74B55F43BBBD5E31B8D895ACCF976 /* Pods-FlipPic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlipPic-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DD3920E3B8C0387D4C92B1C53312F137 /* Pods-FlipPic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FlipPic.modulemap"; sourceTree = "<group>"; };
+		E108E95E1A4DE200395AC80C2A54E2B1 /* LKBundlesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKBundlesManager.h; path = LaunchKit/Classes/Bundles/LKBundlesManager.h; sourceTree = "<group>"; };
+		E1297E491DD0F907C3D5A20AB8F9AD6D /* LK_SSZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LK_SSZipArchive.m; path = LaunchKit/Classes/ThirdParty/ZipArchive/LK_SSZipArchive.m; sourceTree = "<group>"; };
+		E3710FBA36013607D723CBC1560DE2B0 /* LKPagedUIViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKPagedUIViewController.m; path = LaunchKit/Classes/UI/Components/LKPagedUIViewController.m; sourceTree = "<group>"; };
+		E56FD92C5FA4D9B3950851BD7EE892F0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBA004CD18080E625814583779EFF188 /* LKCardPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKCardPresentationController.m; path = LaunchKit/Classes/UI/Presentation/LKCardPresentationController.m; sourceTree = "<group>"; };
+		ED2A5A86862B709924FDEAC08EBEF604 /* LKNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKNavigationController.h; path = LaunchKit/Classes/UI/Components/LKNavigationController.h; sourceTree = "<group>"; };
+		EE94233232D208BFE70B7F1BAB4667D2 /* NSString+LKURLEncoded.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+LKURLEncoded.h"; path = "LaunchKit/Classes/NSString+LKURLEncoded.h"; sourceTree = "<group>"; };
+		EE9F06635D8487E68EF40818859D33F4 /* LKConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKConfig.m; path = LaunchKit/Classes/Config/LKConfig.m; sourceTree = "<group>"; };
+		EF32584B50B2D8A3988CEEABB0789A30 /* LaunchKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LaunchKit.h; path = LaunchKit/Classes/LaunchKit.h; sourceTree = "<group>"; };
+		F0CADFD60EBC2CCC860409C486BB14DB /* Pods-FlipPic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlipPic.debug.xcconfig"; sourceTree = "<group>"; };
+		F13DA3D968CD5827B6B8AA0D1C50A1DD /* LKLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKLabel.m; path = LaunchKit/Classes/UI/Components/LKLabel.m; sourceTree = "<group>"; };
+		FAA7F4E9E59ED6412CFA748D76E9BDCB /* LK_SSZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LK_SSZipArchive.h; path = LaunchKit/Classes/ThirdParty/ZipArchive/LK_SSZipArchive.h; sourceTree = "<group>"; };
+		FDAD92FD18DF69FDDB3C3E6DCAD2196D /* LKAnalytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKAnalytics.h; path = LaunchKit/Classes/Analytics/LKAnalytics.h; sourceTree = "<group>"; };
+		FEEF858D51E59F99FF3E6A3CE36FD34C /* LKPagedUIViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKPagedUIViewController.h; path = LaunchKit/Classes/UI/Components/LKPagedUIViewController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D2545C576A5E9BD3F8FB1CDA8650F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E3424FD3EFAD1E3AE2653BEDF4221A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1081926424C047CAD47D5344FEFBFE3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD70F169150071F6922EF2ED1BB4A31D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE0D0B63E5563F786953F899B5EEE78A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0329E0BE867DA4543086B3E828D3166B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC5C7B620CFBC28C33729B8839A6F683 /* LaunchKit.framework */,
+				D9C9CC17F35CCF21EDDC6EFA5D95BDB8 /* LaunchKitResources.bundle */,
+				2F2BB9E2CFBF20214E5D5E099E2A4F3D /* Pods_FlipPic.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		112C7921E3A497328D11F4930CBBC9CA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2CC41AB3505170466A24FD5CA8FE8354 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA327D92E732B7138C9F35885BADB841 /* Pods-FlipPic */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		555BB6F361CE0432AF8D99FAFE6A191C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AC6FDF3690286DEF2ECB5DF3500494F /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B6396CD00951904888AA288B4F59A6C /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				70F3D73999AA703889F7C509878A23A5 /* Frameworks */,
+			);
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		632AB0F0487017DA4D49EFF0DEE8D29D /* LaunchKit */ = {
+			isa = PBXGroup;
+			children = (
+				EF32584B50B2D8A3988CEEABB0789A30 /* LaunchKit.h */,
+				AE27666228A5AFD922548C8CC2757239 /* LaunchKit.m */,
+				6A07CF9CA78AAD71B90D19F01DA0EB3E /* LaunchKitShared.h */,
+				7CC96C908CC1A79107701AE47D18BA69 /* lk_crypt.h */,
+				CEFC39053ED9FCE09C8E119BA19ED037 /* lk_ioapi.c */,
+				387465F56358D30DCFEDADF6C2770791 /* lk_ioapi.h */,
+				08E0C956C04F018F5622CD512D2A29DB /* lk_mztools.c */,
+				8FD02186C76908DFB33F16A2061E6C28 /* lk_mztools.h */,
+				FAA7F4E9E59ED6412CFA748D76E9BDCB /* LK_SSZipArchive.h */,
+				E1297E491DD0F907C3D5A20AB8F9AD6D /* LK_SSZipArchive.m */,
+				1C5217FDC6733E1CFE0099E50E58EBE9 /* lk_unzip.c */,
+				9C159F95B013BDF9F61284F8DA0E7FDE /* lk_unzip.h */,
+				77E4C3342EC3133BF515B32B4810C3D2 /* lk_zip.c */,
+				67AEE39000C3A5BE789A1F68C6977699 /* lk_zip.h */,
+				FDAD92FD18DF69FDDB3C3E6DCAD2196D /* LKAnalytics.h */,
+				B379DFB8AAA639258B7F9E3B27A91127 /* LKAnalytics.m */,
+				69FDD27E5C9B2280C46DF18F7DE258AA /* LKAPIClient.h */,
+				A4FD9EBDB252B92EF7A88010A297F731 /* LKAPIClient.m */,
+				8DC92ED296582F7B2A8030EC16AB75CC /* LKAppUser.h */,
+				4684E2B1CAD5A74AAD0D4CAA65E50E7B /* LKAppUser.m */,
+				A7BBD7EC816027102180234389B60DB9 /* LKBundleInfo.h */,
+				2646679D21481DB14217D80E494F567F /* LKBundleInfo.m */,
+				E108E95E1A4DE200395AC80C2A54E2B1 /* LKBundlesManager.h */,
+				5A2F26E3AA13811019771B0E49EA1434 /* LKBundlesManager.m */,
+				568A0B0020EA97F5AF6FE4769D6C0AEA /* LKButton.h */,
+				D587BF287B98D9ACFD3548DE321C9D22 /* LKButton.m */,
+				BF9610D537C3A92547FE3FE51364B3A5 /* LKCardPresentationController.h */,
+				EBA004CD18080E625814583779EFF188 /* LKCardPresentationController.m */,
+				0448C2D1C6DD59014D15DF606843B629 /* LKConfig.h */,
+				EE9F06635D8487E68EF40818859D33F4 /* LKConfig.m */,
+				19D161DFB89E7D083D8943FDB0E70D23 /* LKFadeCustomSegue.h */,
+				07E081AE425AF3EF6E5CD8870299E7CA /* LKFadeCustomSegue.m */,
+				22916FF22F7472A01B29DF6DA5F199D5 /* LKGradientView.h */,
+				1E121ADA4A65A963A3A7CCFC983E468A /* LKGradientView.m */,
+				14C5E8E1C03D8F9706FF74075D28B253 /* LKImageView.h */,
+				134E668F685FCB0F07B34012EC0E9979 /* LKImageView.m */,
+				2955C187965DB0D87C9E22F9D5FDFA27 /* LKLabel.h */,
+				F13DA3D968CD5827B6B8AA0D1C50A1DD /* LKLabel.m */,
+				6A1F1311065B6DBC2F1AE8F6A8AF91F5 /* LKLog.h */,
+				0216A46933851031D61C1BC42C9B7F86 /* LKLog.m */,
+				ED2A5A86862B709924FDEAC08EBEF604 /* LKNavigationController.h */,
+				0E60136D1950B244DCBE4EDD06072EEA /* LKNavigationController.m */,
+				5D1F592FE45AFCD9ECB006E525216F24 /* LKOnboardingViewController.h */,
+				66EAD2E6B930D4B3E055E1206909E2E2 /* LKOnboardingViewController.m */,
+				5D5B522E91444F0A159762FC8154A1CD /* LKPageControl.h */,
+				2DD94E3E770D491657BAE35B5ECCCDF3 /* LKPageControl.m */,
+				FEEF858D51E59F99FF3E6A3CE36FD34C /* LKPagedUIViewController.h */,
+				E3710FBA36013607D723CBC1560DE2B0 /* LKPagedUIViewController.m */,
+				72A60A7D72652257026099E894246CDF /* LKPopCustomSegue.h */,
+				445724D6EF4DE53765739AC1CB7AA9C4 /* LKPopCustomSegue.m */,
+				111EB49DB6E8A7E0631428C231331583 /* LKPushCustomSegue.h */,
+				1483F5C95E39660826947EAAAAFC628A /* LKPushCustomSegue.m */,
+				245A262CE55E854D64AE076703556C9B /* LKSimpleStackView.h */,
+				5AEBEE302331915657BD819FC6B52072 /* LKSimpleStackView.m */,
+				930595A2FD0C490BB3635C8E777C1F97 /* LKTrackOperation.h */,
+				3F0E4F9EE62149B3BA7A260E5CE2C16C /* LKTrackOperation.m */,
+				B13B8DB7E14F100710D9F75E7A304A76 /* LKUIManager.h */,
+				B2A027F562D0B5148142B5BBA5FDCAE7 /* LKUIManager.m */,
+				5128A841BCA44FD9753E756C9A90BA87 /* LKUtils.h */,
+				096C1C84CB7DFF1D256D56C15DC27298 /* LKUtils.m */,
+				33B8646861092E826E175798D7C20DB8 /* LKViewController.h */,
+				83F09472E0E7B99A3ACFB744A2A961EA /* LKViewController.m */,
+				196794ED242A0F3F45AD5964F1BA5CDC /* NSDictionary+LKFormEncoded.h */,
+				D7A01A78BFCEE42276D7A38E7C4BBD6C /* NSDictionary+LKFormEncoded.m */,
+				EE94233232D208BFE70B7F1BAB4667D2 /* NSString+LKURLEncoded.h */,
+				21DECD3DA4F2B82974D1575F0F151BB5 /* NSString+LKURLEncoded.m */,
+				36B33FF54D279B0E16DBC8DD461A852A /* UIView+LKAdditions.h */,
+				199C32652C8879AF6496E1A7D4621C16 /* UIView+LKAdditions.m */,
+			);
+			name = LaunchKit;
+			sourceTree = "<group>";
+		};
+		70F3D73999AA703889F7C509878A23A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06A68C01FBE2DCC60B8786865A034A37 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				EF7D3DD337107268ACD6F2FBCD77BAEF /* Pods */,
+				0329E0BE867DA4543086B3E828D3166B /* Products */,
+				2CC41AB3505170466A24FD5CA8FE8354 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		86C23605B8AA4CE8F9D72A14934FE65A /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				555BB6F361CE0432AF8D99FAFE6A191C /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		AAB12C0CFCBCE4CE897B792CB37BE562 /* LaunchKit */ = {
+			isa = PBXGroup;
+			children = (
+				632AB0F0487017DA4D49EFF0DEE8D29D /* LaunchKit */,
+				AB2E2B95F109758F5C6020A0A3311828 /* Support Files */,
+			);
+			path = LaunchKit;
+			sourceTree = "<group>";
+		};
+		AB2E2B95F109758F5C6020A0A3311828 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				062556444FE9E3300F8E3C4B4C19AA58 /* Info.plist */,
+				0878E31B3A459ED559C1EB77F2C712A1 /* LaunchKit.modulemap */,
+				D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */,
+				A5E24727499444158B3D7D5287F1F572 /* LaunchKit-dummy.m */,
+				BCB5766DFB3D0D6A60813DF47C7F21BF /* LaunchKit-prefix.pch */,
+				8FF01D03B254F56C133DD45F446D0167 /* LaunchKit-umbrella.h */,
+				71FD7D85F1D02F0056D68451CE08D9EA /* ResourceBundle-LaunchKitResources-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LaunchKit";
+			sourceTree = "<group>";
+		};
+		BA327D92E732B7138C9F35885BADB841 /* Pods-FlipPic */ = {
+			isa = PBXGroup;
+			children = (
+				E56FD92C5FA4D9B3950851BD7EE892F0 /* Info.plist */,
+				DD3920E3B8C0387D4C92B1C53312F137 /* Pods-FlipPic.modulemap */,
+				DAB74B55F43BBBD5E31B8D895ACCF976 /* Pods-FlipPic-acknowledgements.markdown */,
+				6238F2EB40F10D8C31DBA82FA746958C /* Pods-FlipPic-acknowledgements.plist */,
+				BA911355D3F7D5F03BAB061B8747A0B2 /* Pods-FlipPic-dummy.m */,
+				2B831D8F01A1373996D6BD0752BD7ED6 /* Pods-FlipPic-frameworks.sh */,
+				8931DB44FCBDD8DA8F7A37A4852FFBCA /* Pods-FlipPic-resources.sh */,
+				A4A389032088F4651C2826B6421EB7FF /* Pods-FlipPic-umbrella.h */,
+				F0CADFD60EBC2CCC860409C486BB14DB /* Pods-FlipPic.debug.xcconfig */,
+				148DC995CA075A64A233FCDB46F7851A /* Pods-FlipPic.release.xcconfig */,
+			);
+			name = "Pods-FlipPic";
+			path = "Target Support Files/Pods-FlipPic";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				112C7921E3A497328D11F4930CBBC9CA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF7D3DD337107268ACD6F2FBCD77BAEF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B6396CD00951904888AA288B4F59A6C /* Crashlytics */,
+				86C23605B8AA4CE8F9D72A14934FE65A /* Fabric */,
+				AAB12C0CFCBCE4CE897B792CB37BE562 /* LaunchKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0BDF46BFE02A775BD692D4FE6D40E54A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0083010783014FD331F12E8D751BB76 /* Pods-FlipPic-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		215D0E39E08657B2D975F491196A0564 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85FA5FA3CECC82EBD3E491B7E7BFFA4 /* LaunchKit-umbrella.h in Headers */,
+				2A14B69761ACD7A7007CC96848E289E8 /* LaunchKit.h in Headers */,
+				ADC3641693C8DFD9B122EA3883A33475 /* LaunchKitShared.h in Headers */,
+				5355D7938DB8AD72CDF2939A0619F3E4 /* lk_crypt.h in Headers */,
+				C251AAF41E97E676E34C3C0BC63C81F4 /* lk_ioapi.h in Headers */,
+				C3C298D28DFB0AA7DC08CCD95026B8B3 /* lk_mztools.h in Headers */,
+				E7377E61695D3F2905A29C2C2D6808BB /* LK_SSZipArchive.h in Headers */,
+				97F275549805BA444803C6BB04C0BA27 /* lk_unzip.h in Headers */,
+				CF4304F60AD4EB443D916F7FCE09F5B7 /* lk_zip.h in Headers */,
+				C6699F5DCA707038A29D6AA497EA52D9 /* LKAnalytics.h in Headers */,
+				E83D074E0FF8AF26A9EB58911E18C05D /* LKAPIClient.h in Headers */,
+				BC558B13DD884A820B992BC2D7DF0654 /* LKAppUser.h in Headers */,
+				5C31D6BADFFB6877E36A763FA6A75090 /* LKBundleInfo.h in Headers */,
+				9C6BD79BF11521E06C214603E62F4F2F /* LKBundlesManager.h in Headers */,
+				F7826DC5AAFFFCF692E8A0C74F857537 /* LKButton.h in Headers */,
+				12A1E065AAEEB419EF95B88206FAE43F /* LKCardPresentationController.h in Headers */,
+				13886B048389E1E7BAD6F9467143BE45 /* LKConfig.h in Headers */,
+				D8F1C0A5D77CA91D41EB58CAECAA19E7 /* LKFadeCustomSegue.h in Headers */,
+				69F9D6E2BC900A5010AA162AD2A15FF7 /* LKGradientView.h in Headers */,
+				F31A839FE4CA3C8387D68C22E042E325 /* LKImageView.h in Headers */,
+				7CD05ACFC5721EF1A5CBC9F4F552A944 /* LKLabel.h in Headers */,
+				06088AB83FEAD567E45975FBEF389BB1 /* LKLog.h in Headers */,
+				9804004EBECEDB3BC878E993F9E5ABA6 /* LKNavigationController.h in Headers */,
+				9D45AFBFA2375F1BBD189ADE13B690EF /* LKOnboardingViewController.h in Headers */,
+				80CDFA0610A1D3E9918A22C678B7C448 /* LKPageControl.h in Headers */,
+				5007CD49F7FAC251ECF8583976D9F9E1 /* LKPagedUIViewController.h in Headers */,
+				0CC050626015BA0779A9EBD0DD161FE5 /* LKPopCustomSegue.h in Headers */,
+				4631E2D1EC4DBBD77C2461A35E998D86 /* LKPushCustomSegue.h in Headers */,
+				FEED14D7659DBB76B964AFBC08420C23 /* LKSimpleStackView.h in Headers */,
+				88C7602668FF74657C1BF70DEE85986E /* LKTrackOperation.h in Headers */,
+				EF00DF0F34A3F53E5791343BF9C132FF /* LKUIManager.h in Headers */,
+				30905662B350A5A4BEC50C0863FD0B2D /* LKUtils.h in Headers */,
+				AE81AB0E065ECDB069533ACA8A35ED23 /* LKViewController.h in Headers */,
+				7AC3148057434AEA09867A0485F1334F /* NSDictionary+LKFormEncoded.h in Headers */,
+				531952FA80D33A73F03468728CEA4A2A /* NSString+LKURLEncoded.h in Headers */,
+				B04DDC164B765D959C7A737C7BA4A15C /* UIView+LKAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4240EBDA226112ADA757DD8EA2D53BC0 /* Pods-FlipPic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1FF17840149F6B4F277DA12E2225EA8 /* Build configuration list for PBXNativeTarget "Pods-FlipPic" */;
+			buildPhases = (
+				36CCD643EAF6B9C7679323715D5A3E54 /* Sources */,
+				8E3424FD3EFAD1E3AE2653BEDF4221A7 /* Frameworks */,
+				0BDF46BFE02A775BD692D4FE6D40E54A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CCF19AE1419D4985942A097DD69145 /* PBXTargetDependency */,
+			);
+			name = "Pods-FlipPic";
+			productName = "Pods-FlipPic";
+			productReference = 2F2BB9E2CFBF20214E5D5E099E2A4F3D /* Pods_FlipPic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6347BABC009241CF3919941499776C40 /* LaunchKit-LaunchKitResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25A10475A1AE5D8E9AFF0A400FB587AF /* Build configuration list for PBXNativeTarget "LaunchKit-LaunchKitResources" */;
+			buildPhases = (
+				BF3DEB85D57A5216678280593F6EADE1 /* Sources */,
+				2D2545C576A5E9BD3F8FB1CDA8650F70 /* Frameworks */,
+				40E4F68047F1EDEF5592501B663E3F0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LaunchKit-LaunchKitResources";
+			productName = "LaunchKit-LaunchKitResources";
+			productReference = D9C9CC17F35CCF21EDDC6EFA5D95BDB8 /* LaunchKitResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		66B430207B132208DA143D41AB4BF82C /* LaunchKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27FB915C617B58A717C3A14AC4FB51DF /* Build configuration list for PBXNativeTarget "LaunchKit" */;
+			buildPhases = (
+				18CC1192C0A45F35F179904852BF7857 /* Sources */,
+				FD70F169150071F6922EF2ED1BB4A31D /* Frameworks */,
+				2EBA7BECBDC370B47801F41E73DA9832 /* Resources */,
+				215D0E39E08657B2D975F491196A0564 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F75B408E274B6E0E464BBBC096EB7B0 /* PBXTargetDependency */,
+			);
+			name = LaunchKit;
+			productName = LaunchKit;
+			productReference = CC5C7B620CFBC28C33729B8839A6F683 /* LaunchKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 0329E0BE867DA4543086B3E828D3166B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66B430207B132208DA143D41AB4BF82C /* LaunchKit */,
+				6347BABC009241CF3919941499776C40 /* LaunchKit-LaunchKitResources */,
+				4240EBDA226112ADA757DD8EA2D53BC0 /* Pods-FlipPic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2EBA7BECBDC370B47801F41E73DA9832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9267281E6D3DA782BDF15DE48B36A35C /* LaunchKitResources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40E4F68047F1EDEF5592501B663E3F0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18CC1192C0A45F35F179904852BF7857 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96743706EF642D56369D3FEAFDF5BA0A /* LaunchKit-dummy.m in Sources */,
+				3047E9276D44AF17179B964BEC0F89AB /* LaunchKit.m in Sources */,
+				D518271AB198D0C55ADBD8763F42B795 /* lk_ioapi.c in Sources */,
+				600280E9D36889BC66EEFF51E9285A03 /* lk_mztools.c in Sources */,
+				2F23786A1B4106C2F3E75E9BA9E7C234 /* LK_SSZipArchive.m in Sources */,
+				1E2BEC5F2C4318FEF67EFA6E56E7E78A /* lk_unzip.c in Sources */,
+				F68D91400FBF147A678D066BAD1569D3 /* lk_zip.c in Sources */,
+				06A14A7054104AB399849315DAFC7D44 /* LKAnalytics.m in Sources */,
+				9FFCAE138135CBE8260DA153F1F72771 /* LKAPIClient.m in Sources */,
+				03BD9E30E8B2B7772D75FA81C217207B /* LKAppUser.m in Sources */,
+				E8EFB1C1A6B1ABEBC4FAEF954262CCBA /* LKBundleInfo.m in Sources */,
+				A707596AE6C3AE4C3DC56D2839CFAF02 /* LKBundlesManager.m in Sources */,
+				F9736C1342E13127E601EF2B028543D2 /* LKButton.m in Sources */,
+				62E9575AC80368AD75B44EEA5371E867 /* LKCardPresentationController.m in Sources */,
+				62712B3677526C2519DA487617170B5D /* LKConfig.m in Sources */,
+				9D78EBBB0F7CA41E6A1A65753D7284F6 /* LKFadeCustomSegue.m in Sources */,
+				429E42D524146408631309A58E3AE3F0 /* LKGradientView.m in Sources */,
+				7DF7E723FB2644C2A7553D8DA2AA0CF5 /* LKImageView.m in Sources */,
+				1952D8022F86A564E903B5A643ADD2CD /* LKLabel.m in Sources */,
+				41DA7AB8E0E5C1D4B82F2D28DD6DBC61 /* LKLog.m in Sources */,
+				1798F75B366CAC62C05320A644F6F15F /* LKNavigationController.m in Sources */,
+				3AECEB9F7EE211C61DEFDCC39A9AA593 /* LKOnboardingViewController.m in Sources */,
+				AC58DBA72E045211D206DD952AECE976 /* LKPageControl.m in Sources */,
+				FAF0518D72932D5A1C7B382E9DCF3AD9 /* LKPagedUIViewController.m in Sources */,
+				90960657A9CD1044F855100C9EB7B204 /* LKPopCustomSegue.m in Sources */,
+				C9069865FE0A384E71CD26C85CC02106 /* LKPushCustomSegue.m in Sources */,
+				E0C6969EA5901795DC7C9C380E1CDC11 /* LKSimpleStackView.m in Sources */,
+				E0B8A2625FC8EC9C6B39448DCD0AF6E2 /* LKTrackOperation.m in Sources */,
+				C6A16FAAA460F75F1283FC95D8F412D3 /* LKUIManager.m in Sources */,
+				B6D0A813CFCC1DDF485CFDD8C1972B96 /* LKUtils.m in Sources */,
+				D4A58767061820D7D4FD4901761B7922 /* LKViewController.m in Sources */,
+				399BE682090A4929113D5ED1E499363E /* NSDictionary+LKFormEncoded.m in Sources */,
+				78D3C4FBD6D64AD22B095FDE73857186 /* NSString+LKURLEncoded.m in Sources */,
+				49259162852A34B0F055A9FED2967D92 /* UIView+LKAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CCD643EAF6B9C7679323715D5A3E54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8764FFA467BB5DD62637AFC82DCF17 /* Pods-FlipPic-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3DEB85D57A5216678280593F6EADE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F75B408E274B6E0E464BBBC096EB7B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LaunchKit-LaunchKitResources";
+			target = 6347BABC009241CF3919941499776C40 /* LaunchKit-LaunchKitResources */;
+			targetProxy = 312160B4F877431DA89962BB731A48EB /* PBXContainerItemProxy */;
+		};
+		37CCF19AE1419D4985942A097DD69145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LaunchKit;
+			target = 66B430207B132208DA143D41AB4BF82C /* LaunchKit */;
+			targetProxy = C5ED620A3E1254029B5D11D9AF8B1C25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0C90E15891F0E3B108DD0207AB63D5DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0CADFD60EBC2CCC860409C486BB14DB /* Pods-FlipPic.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FlipPic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FlipPic/Pods-FlipPic.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FlipPic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2CE16AC72762C01C5DC595053F1F2EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		48A5D6222541255C79A3521AE1906F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/LaunchKit/ResourceBundle-LaunchKitResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = LaunchKitResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		AABFF85889EF4EF5062CE5EB39220947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/LaunchKit/ResourceBundle-LaunchKitResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = LaunchKitResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		B1D12182A310E4445AC3F3B15F330F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148DC995CA075A64A233FCDB46F7851A /* Pods-FlipPic.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FlipPic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FlipPic/Pods-FlipPic.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FlipPic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B97B6FE1F21446800ED385CD75055EF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchKit/LaunchKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LaunchKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LaunchKit/LaunchKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = LaunchKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C6544A1F1139551CE6C6C9B43404CFA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2EAC8DFA237DD28FBAEE6A7730B9807 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2455B6F12D91790657029848F173DA6 /* LaunchKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchKit/LaunchKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LaunchKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LaunchKit/LaunchKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = LaunchKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25A10475A1AE5D8E9AFF0A400FB587AF /* Build configuration list for PBXNativeTarget "LaunchKit-LaunchKitResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABFF85889EF4EF5062CE5EB39220947 /* Debug */,
+				48A5D6222541255C79A3521AE1906F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27FB915C617B58A717C3A14AC4FB51DF /* Build configuration list for PBXNativeTarget "LaunchKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B97B6FE1F21446800ED385CD75055EF4 /* Debug */,
+				F2EAC8DFA237DD28FBAEE6A7730B9807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CE16AC72762C01C5DC595053F1F2EF4 /* Debug */,
+				C6544A1F1139551CE6C6C9B43404CFA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1FF17840149F6B4F277DA12E2225EA8 /* Build configuration list for PBXNativeTarget "Pods-FlipPic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C90E15891F0E3B108DD0207AB63D5DE /* Debug */,
+				B1D12182A310E4445AC3F3B15F330F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

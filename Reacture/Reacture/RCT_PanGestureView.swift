@@ -31,7 +31,7 @@ class PanGestureView: ZoomableView {
             imageView.frame = CGRectMake(view.bounds.width/4, view.bounds.height/4, view.bounds.width/2, view.bounds.height/2)
             view.backgroundColor = UIColor.whiteColor()
             view.alpha = 0.2
-            view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "detectPan:"))
+            view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(PanGestureView.detectPan(_:))))
             isMoveableView = view
             self.addSubview(isMoveableView!)
 
@@ -60,7 +60,7 @@ class PanGestureView: ZoomableView {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("Touches began")
-        print("center: \(self.center)")
+        print("Center: \(self.center)")
         setLastLocation()
     }
     

@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Crashlytics
+import LaunchKit
 
 var hasTakenFirstPicture: Bool?
 var soundID: SystemSoundID = 0
@@ -23,9 +25,22 @@ func delay(seconds seconds: Double, completion:()->()) {
 
 class RCT_CameraViewController: UIViewController {
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        LaunchKit.sharedInstance().presentAppReleaseNotesIfNeededFromViewController(self) { (didPresent: Bool) -> Void in
+            if didPresent {
+                print("Presented Release Notes card")
+            }
+        }
+        // Uncomment for debugging
+//        LaunchKit.sharedInstance().debugAlwaysPresentAppReleaseNotes = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tapToFocusRecognizer = UITapGestureRecognizer(target: self, action: "tapToFocus:")
+
+        self.tapToFocusRecognizer = UITapGestureRecognizer(target: self, action: #selector(RCT_CameraViewController.tapToFocus(_:)))
         setupCamera()
         setupButtons()
 
@@ -47,7 +62,6 @@ class RCT_CameraViewController: UIViewController {
         focusBoxInner.alpha = 0.0
         view.addSubview(focusBox)
         focusBox.addSubview(focusBoxInner)
-
     }
 
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -115,7 +129,7 @@ class RCT_CameraViewController: UIViewController {
     let shutterButton = UIButton()
     let iSightFlashButton = UIButton()
     let shutterButtonBorder: UIView = UIView()
-    
+
     // MARK: - Actions
 
     @IBAction func iSightFlashButtonTapped(sender: AnyObject) {
@@ -189,7 +203,7 @@ class RCT_CameraViewController: UIViewController {
                 })
             }
         } else {
-            //Front Camera Should Already Be on Preview Layer
+            // Front camera should already be on Preview Layer
             if let frontCamera = frontCaptureDevice {
                 takePic(frontCamera, session: captureSesson, completion: { (data) -> Void in
 
@@ -204,7 +218,7 @@ class RCT_CameraViewController: UIViewController {
                         self.captureSesson.addInput(self.backInput)
                         self.captureSesson.commitConfiguration()
 
-                        // TODO: - Possibly Add KVO
+                        // TODO: - Possibly add KVO
 
                         delay(seconds: 0.1, completion: { () -> () in
                             if let backCamera = self.backCaptureDevice {
@@ -364,17 +378,17 @@ class RCT_CameraViewController: UIViewController {
             self.focusBox.transform = focusBoxScaleTransform
             //            self.focusBoxInner.transform = focusBoxScaleTransform
 
+        }) { (_) -> Void in
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+
+                self.focusBox.transform = focusBoxScaleTransformShrink
+                self.focusBox.alpha = 0.0
+                self.focusBoxInner.alpha = 0.0
+
             }) { (_) -> Void in
 
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-
-                    self.focusBox.transform = focusBoxScaleTransformShrink
-                    self.focusBox.alpha = 0.0
-                    self.focusBoxInner.alpha = 0.0
-
-                    }) { (_) -> Void in
-
-                }
+            }
         }
     }
 
@@ -430,21 +444,20 @@ class RCT_CameraViewController: UIViewController {
         let width = self.view.frame.width / 6
         let borderWidth: CGFloat = (self.view.frame.width + 3)/6
         // Shutter Button
-        
         shutterButton.frame.size = CGSize(width: width, height: width)
         shutterButtonBorder.frame.size = CGSize(width: borderWidth, height: borderWidth)
         shutterButtonBorder.center.x = self.view.center.x
         shutterButton.center = CGPoint(x: shutterButtonBorder.bounds.maxX/2, y: shutterButtonBorder.bounds.maxY/2)
         shutterButtonBorder.frame.origin.y = self.view.frame.size.height - shutterButton.frame.size.height - 10
         flashView.backgroundColor = UIColor(red: 1, green: 0.718, blue: 0.318, alpha: 0.75)
-        shutterButton.layer.cornerRadius = width / 2
+        shutterButton.layer.cornerRadius = width/2
         shutterButtonBorder.layer.cornerRadius = borderWidth/2
         shutterButton.backgroundColor = UIColor.whiteColor()
         shutterButton.alpha = 0.5
         shutterButtonBorder.backgroundColor = UIColor.clearColor()
         shutterButtonBorder.layer.borderWidth = 3
         shutterButtonBorder.layer.borderColor = UIColor.whiteColor().CGColor
-        shutterButton.addTarget(self, action: "shutterButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        shutterButton.addTarget(self, action: #selector(RCT_CameraViewController.shutterButtonTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(shutterButtonBorder)
         shutterButtonBorder.addSubview(shutterButton)
         shutterButton.sendSubviewToBack(shutterButtonBorder)
@@ -455,7 +468,7 @@ class RCT_CameraViewController: UIViewController {
         iSightFlashButton.setBackgroundImage(UIImage(named: "iSightFlashButton_Off")!, forState: .Normal)
         iSightFlashButton.imageView?.contentMode = .ScaleAspectFit
         iSightFlashButton.alpha = 1
-        iSightFlashButton.addTarget(self, action: "iSightFlashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        iSightFlashButton.addTarget(self, action: #selector(RCT_CameraViewController.iSightFlashButtonTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(iSightFlashButton)
         // Switch Camera Button
         switchCameraButton.alpha = 1
@@ -564,13 +577,13 @@ extension RCT_CameraViewController {
         previewView.layer.addSublayer(self.previewLayer)
         previewLayer.frame = self.previewView.frame
         previewView.addGestureRecognizer(tapToFocusRecognizer)
-
+        
         self.view.bringSubviewToFront(shutterButton)
         self.view.bringSubviewToFront(switchCameraButton)
         self.view.bringSubviewToFront(iSightFlashButton)
         //print("PreviewLayer: \(previewLayer.bounds.size) PreviewView: \(previewView.bounds.size)")
     }
-
+    
     func flipPreviewLayer(animationOption: UIViewAnimationOptions) {
         UIView.transitionWithView(self.previewView, duration: 1, options: [UIViewAnimationOptions.CurveEaseInOut, animationOption], animations: { () -> Void in
             self.previewView.hidden = false

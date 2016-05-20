@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		244659A31C4EDAC200F19B9D /* RCT_TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244659A21C4EDAC200F19B9D /* RCT_TutorialPageViewController.swift */; };
-		244659A51C4EEE0F00F19B9D /* RCT_PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244659A41C4EEE0F00F19B9D /* RCT_PageContentViewController.swift */; };
 		2491CDC01C46FF3C00748664 /* RCT_PanGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491CDBF1C46FF3C00748664 /* RCT_PanGestureView.swift */; };
 		24B871721C3C5B7E0019DB37 /* RCT_ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B871711C3C5B7E0019DB37 /* RCT_ContainerViewController.swift */; };
 		24B871741C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B871731C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift */; };
@@ -16,6 +14,7 @@
 		24B8717B1C3C5E140019DB37 /* RCT_EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */; };
 		24F919211C4AF79E005A47EA /* photoShutter2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 24F919201C4AF79E005A47EA /* photoShutter2.caf */; };
 		24F9B4471C4A5C1600C85662 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		2DCA849F75A370C6BE1678FC /* Pods_FlipPic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */; };
 		716D6A281C3C462B00B762F9 /* RCT_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716D6A271C3C462B00B762F9 /* RCT_AppDelegate.swift */; };
 		716D6A2D1C3C462B00B762F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716D6A2B1C3C462B00B762F9 /* Main.storyboard */; };
 		716D6A2F1C3C462B00B762F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716D6A2E1C3C462B00B762F9 /* Assets.xcassets */; };
@@ -29,18 +28,19 @@
 		71C889AC1C49B16A00F6119C /* RCT_ScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C889AB1C49B16A00F6119C /* RCT_ScrollViewExtension.swift */; };
 		71C889CB1C4EE5FA00F6119C /* RCT_UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C889CA1C4EE5FA00F6119C /* RCT_UIViewExtension.swift */; };
 		970A5C171C5098EF00581779 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970A5C161C5098EF00581779 /* Launch Screen.storyboard */; };
+		9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */; };
 		979B738F1C4F103F008EB3C7 /* RCT_UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		244659A21C4EDAC200F19B9D /* RCT_TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_TutorialPageViewController.swift; sourceTree = "<group>"; };
-		244659A41C4EEE0F00F19B9D /* RCT_PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_PageContentViewController.swift; sourceTree = "<group>"; };
 		2491CDBF1C46FF3C00748664 /* RCT_PanGestureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_PanGestureView.swift; sourceTree = "<group>"; };
 		24B871711C3C5B7E0019DB37 /* RCT_ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_ContainerViewController.swift; sourceTree = "<group>"; };
 		24B871731C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_OptionItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		24B871781C3C5D8A0019DB37 /* RCT_CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_CameraViewController.swift; sourceTree = "<group>"; };
 		24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_EditViewController.swift; sourceTree = "<group>"; };
 		24F919201C4AF79E005A47EA /* photoShutter2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = photoShutter2.caf; sourceTree = "<group>"; };
+		25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipPic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic.debug.xcconfig"; sourceTree = "<group>"; };
+		37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlipPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716D6A241C3C462B00B762F9 /* FlipPic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipPic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		716D6A271C3C462B00B762F9 /* RCT_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCT_AppDelegate.swift; sourceTree = "<group>"; };
 		716D6A2C1C3C462B00B762F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,9 @@
 		71C889AB1C49B16A00F6119C /* RCT_ScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_ScrollViewExtension.swift; sourceTree = "<group>"; };
 		71C889CA1C4EE5FA00F6119C /* RCT_UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_UIViewExtension.swift; sourceTree = "<group>"; };
 		970A5C161C5098EF00581779 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Reacture/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9711D1311CEED4EF00F537E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Reacture/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_UIColorExtension.swift; sourceTree = "<group>"; };
+		9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipPic.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCA849F75A370C6BE1678FC /* Pods_FlipPic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +76,6 @@
 		24B871751C3C5CCB0019DB37 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				244659A41C4EEE0F00F19B9D /* RCT_PageContentViewController.swift */,
-				244659A21C4EDAC200F19B9D /* RCT_TutorialPageViewController.swift */,
 				24B871781C3C5D8A0019DB37 /* RCT_CameraViewController.swift */,
 				24B871711C3C5B7E0019DB37 /* RCT_ContainerViewController.swift */,
 				24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */,
@@ -107,11 +108,14 @@
 			isa = PBXGroup;
 			children = (
 				716D6A331C3C462B00B762F9 /* Info.plist */,
+				9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */,
 				970A5C161C5098EF00581779 /* Launch Screen.storyboard */,
 				716D6A2B1C3C462B00B762F9 /* Main.storyboard */,
 				716D6A2E1C3C462B00B762F9 /* Assets.xcassets */,
 				716D6A261C3C462B00B762F9 /* FlipPic */,
 				716D6A251C3C462B00B762F9 /* Products */,
+				B8FBE648F4C9729202F6C439 /* Pods */,
+				F2957FE3AAFA0BEF503AABCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +145,23 @@
 			path = Reacture;
 			sourceTree = "<group>";
 		};
+		B8FBE648F4C9729202F6C439 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */,
+				9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F2957FE3AAFA0BEF503AABCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,9 +169,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 716D6A361C3C462B00B762F9 /* Build configuration list for PBXNativeTarget "FlipPic" */;
 			buildPhases = (
+				34C8D054E3F443F74C953F62 /* 📦 Check Pods Manifest.lock */,
 				716D6A201C3C462B00B762F9 /* Sources */,
 				716D6A211C3C462B00B762F9 /* Frameworks */,
 				716D6A221C3C462B00B762F9 /* Resources */,
+				1B0C3BE17EECD9C2DD0C1C65 /* 📦 Embed Pods Frameworks */,
+				30E6CD95D962EA205C719204 /* 📦 Copy Pods Resources */,
+				9711D12F1CEE6EDE00F537E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -203,11 +228,73 @@
 				24F919211C4AF79E005A47EA /* photoShutter2.caf in Resources */,
 				716D6A2F1C3C462B00B762F9 /* Assets.xcassets in Resources */,
 				970A5C171C5098EF00581779 /* Launch Screen.storyboard in Resources */,
+				9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */,
 				716D6A2D1C3C462B00B762F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B0C3BE17EECD9C2DD0C1C65 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30E6CD95D962EA205C719204 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34C8D054E3F443F74C953F62 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9711D12F1CEE6EDE00F537E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d7eff75c321d6961fdf8aa2a32b8b1608192e3ee ddc1597a16fc8e9401f80bae586afdbe450882e25d0997bd6b01a175e957534d";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		716D6A201C3C462B00B762F9 /* Sources */ = {
@@ -217,14 +304,12 @@
 				979B738F1C4F103F008EB3C7 /* RCT_UIColorExtension.swift in Sources */,
 				24F9B4471C4A5C1600C85662 /* (null) in Sources */,
 				2491CDC01C46FF3C00748664 /* RCT_PanGestureView.swift in Sources */,
-				244659A31C4EDAC200F19B9D /* RCT_TutorialPageViewController.swift in Sources */,
 				719224451C3C886B00CEE9E4 /* RCT_ImageController.swift in Sources */,
 				24B8717B1C3C5E140019DB37 /* RCT_EditViewController.swift in Sources */,
 				719224491C3D862E00CEE9E4 /* RCT_LayoutController.swift in Sources */,
 				24B871741C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift in Sources */,
 				71C889CB1C4EE5FA00F6119C /* RCT_UIViewExtension.swift in Sources */,
 				24B871791C3C5D8A0019DB37 /* RCT_CameraViewController.swift in Sources */,
-				244659A51C4EEE0F00F19B9D /* RCT_PageContentViewController.swift in Sources */,
 				24B871721C3C5B7E0019DB37 /* RCT_ContainerViewController.swift in Sources */,
 				71C889AC1C49B16A00F6119C /* RCT_ScrollViewExtension.swift in Sources */,
 				716D6A281C3C462B00B762F9 /* RCT_AppDelegate.swift in Sources */,
@@ -246,6 +331,14 @@
 			);
 			name = Main.storyboard;
 			path = Reacture;
+			sourceTree = "<group>";
+		};
+		9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9711D1311CEED4EF00F537E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -336,12 +429,14 @@
 		};
 		716D6A371C3C462B00B762F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Reacture/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;
@@ -352,12 +447,13 @@
 		};
 		716D6A381C3C462B00B762F9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Reacture/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;

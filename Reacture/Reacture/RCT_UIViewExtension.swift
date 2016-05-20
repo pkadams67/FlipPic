@@ -93,7 +93,7 @@ extension UIView {
                 if index != 0 {
                     layer.removeFromSuperlayer()
                 }
-                index++
+                index += 1
             })
         }
 

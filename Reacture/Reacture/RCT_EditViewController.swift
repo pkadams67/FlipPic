@@ -109,7 +109,7 @@ class RCT_EditViewController: UIViewController {
         adjustLayoutVisibleView.backgroundColor = UIColor.whiteColor()
         self.adjustLayoutView.addSubview(adjustLayoutVisibleView)
         self.rCTImageView.addSubview(adjustLayoutView)
-        adjustLayoutView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "adjustLayoutView:"))
+        adjustLayoutView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(RCT_EditViewController.adjustLayoutView(_:))))
         updateLayoutViewForLayout()
     }
 
@@ -310,8 +310,8 @@ class RCT_EditViewController: UIViewController {
         rCTImageView.addSubview(backImageZoomableView)
         rCTImageView.addSubview(frontImageZoomableView)
 
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "detectLongPress:")
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapToRemoveView:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(RCT_EditViewController.detectLongPress(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RCT_EditViewController.tapToRemoveView(_:)))
         frontImageZoomableView.gestureRecognizers = [longPressRecognizer,tapGestureRecognizer]
         backImageZoomableView.addGestureRecognizer(tapGestureRecognizer)
 
@@ -451,7 +451,7 @@ class RCT_EditViewController: UIViewController {
         frontImageZoomableView.removeIsMovableView()
         imageCapture()
         print("Share Button Tapped")
-        let shareTextRCTImage = "Shared with #FlipPic “Your Front/Back Camera App”"
+        let shareTextRCTImage = "Shared with @FlipPic1 “Your Front/Back Camera App”"
         if let image = self.imageToSend {
             print("Sending Image")
             let shareViewController = UIActivityViewController(activityItems: [image, shareTextRCTImage], applicationActivities: nil)
@@ -592,7 +592,6 @@ class RCT_EditViewController: UIViewController {
 //            self.swapImagesBarButton.tintColor = UIColor.clearColor()
             self.doneUIButton.hidden = hide
             self.swapImagesUIButton.hidden = hide
-
             
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.containerView.alpha = 0.0
@@ -650,7 +649,7 @@ extension RCT_EditViewController {
     func updateWithFilter(filter: Filter) {
         frontImageZoomableView.removeIsMovableView()
 
-        let monoFilterName = "CIPhotoEffectMono"
+        _ = "CIPhotoEffectMono"
         let tonalFilterName = "CIPhotoEffectTonal"
         let noirFilterName = "CIPhotoEffectNoir"
         let fadeFilterName = "CIPhotoEffectFade"
@@ -713,7 +712,7 @@ extension RCT_EditViewController {
         let filterButtonsCount = Filter.Count.rawValue
         print("Filter Button Count is: \(Filter.Count.rawValue)")
         for var filterButtonIndex = 0; filterButtonIndex <= filterButtonsCount;
-            filterButtonIndex++ {
+            filterButtonIndex += 1 {
                 if filterButtonIndex == filterButtonsCount {
                     // All Button Images Complete
                     // Pass to Container View to populate buttons and reload
@@ -786,7 +785,7 @@ extension RCT_EditViewController {
             scale = frontImage.scale
             orientation = frontImage.imageOrientation
             let height = frontImage.size.height
-            let width = frontImage.size.width
+            _ = frontImage.size.width
             thumbnailScale = thumbnailFrame.height / height // May Need Aspect Adjustment to Make Square Thumbnail
             // Getting CI Image
             beginFrontImage = CIImage(image: frontImage)

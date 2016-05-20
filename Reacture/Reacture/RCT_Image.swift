@@ -10,7 +10,7 @@ import UIKit
 
 class RCT_Image {
 
-    // Front is faceTime Camera (front)
+    // Front is FaceTime Camera (front)
     var imageFrontCIImage: CIImage
 
     // Back is iSight HD Camera (back)
