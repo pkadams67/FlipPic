@@ -107,11 +107,11 @@
 		716D6A1B1C3C462B00B762F9 = {
 			isa = PBXGroup;
 			children = (
-				716D6A331C3C462B00B762F9 /* Info.plist */,
 				9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */,
 				970A5C161C5098EF00581779 /* Launch Screen.storyboard */,
 				716D6A2B1C3C462B00B762F9 /* Main.storyboard */,
 				716D6A2E1C3C462B00B762F9 /* Assets.xcassets */,
+				716D6A331C3C462B00B762F9 /* Info.plist */,
 				716D6A261C3C462B00B762F9 /* FlipPic */,
 				716D6A251C3C462B00B762F9 /* Products */,
 				B8FBE648F4C9729202F6C439 /* Pods */,

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        Fabric.sharedSDK().debug = true
         Fabric.with([Crashlytics.self])
         // TODO: Move this to where you establish a user session
         self.logUser()
