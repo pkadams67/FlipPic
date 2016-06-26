@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Move this to where you establish a user session
         self.logUser()
 
+        // Initialize LaunchKit
         LaunchKit.launchWithToken("5BVpp5-2e7tKRD1ldaPRZK6gpJcWYaW_oWEEwvcJOqRL")
         LaunchKit.sharedInstance().debugMode = true
         LaunchKit.sharedInstance().verboseLogging = true
