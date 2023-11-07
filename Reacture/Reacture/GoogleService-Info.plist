@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAET5yjLFj4bpiA29Q7PMVeXLjvWv-opQA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>36688547444</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.pkadams67.Reacture</string>
+	<key>PROJECT_ID</key>
+	<string>flippic-3545b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flippic-3545b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<false/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:36688547444:ios:e2da229128c9d37450cb21</string>
+</dict>
+</plist>

@@ -1,74 +1,70 @@
-//
-//  PanGestureView.swift
-//  FlipPic
-//
-//  Created by Andrew Porter on 1/13/16.
-//  Copyright © 2016 BAEPS. All rights reserved.
-//
-
 import UIKit
+
+// MARK: - PanGestureViewProtocol
 
 protocol PanGestureViewProtocol {
 
-    func panDetected(center: CGPoint)
+	func panDetected(center: CGPoint)
 }
+
+// MARK: - PanGestureView
 
 class PanGestureView: ZoomableView {
 
-    var lastLocation: CGPoint = CGPointMake(0.0, 0.0)
-    var lastPointLocation: CGPoint = CGPointMake(0.0, 0.0) // for longPressRecognizer
-    var isMoveableView: UIView?
-    var delegate: PanGestureViewProtocol?
+	var lastLocation = CGPoint(x: 0.0, y: 0.0)
+	var lastPointLocation = CGPoint(x: 0.0, y: 0.0) // for longPressRecognizer
+	var isMoveableView: UIView?
+	var delegate: PanGestureViewProtocol?
 
-    func toggleIsMoveable() {
+	func toggleIsMoveable() {
 
-        if isMoveableView == nil {
+		if isMoveableView == nil {
 
-            let view = UIView(frame: self.bounds)
-            let imageView = UIImageView(image: UIImage(named: "move_arrows")!)
-            imageView.contentMode = .ScaleAspectFill
-            view.addSubview(imageView)
-            imageView.frame = CGRectMake(view.bounds.width/4, view.bounds.height/4, view.bounds.width/2, view.bounds.height/2)
-            view.backgroundColor = UIColor.whiteColor()
-            view.alpha = 0.2
-            view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(PanGestureView.detectPan(_:))))
-            isMoveableView = view
-            self.addSubview(isMoveableView!)
+			let view = UIView(frame: bounds)
+			let imageView = UIImageView(image: UIImage(named: "move_arrows")!)
+			imageView.contentMode = .scaleAspectFill
+			view.addSubview(imageView)
+			imageView.frame = CGRect(x: view.bounds.width / 4, y: view.bounds.height / 4, width: view.bounds.width / 2, height: view.bounds.height / 2)
+			view.backgroundColor = UIColor.white
+			view.alpha = 0.2
+			view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(detectPan(_:))))
+			isMoveableView = view
+			addSubview(isMoveableView!)
 
-        } else {
+		} else {
 
-            self.isMoveableView!.removeFromSuperview()
-            self.isMoveableView = nil
-        }
-    }
+			isMoveableView!.removeFromSuperview()
+			isMoveableView = nil
+		}
+	}
 
-    func removeIsMovableView() {
+	func removeIsMovableView() {
 
-        if isMoveableView != nil {
-            self.isMoveableView!.removeFromSuperview()
-            self.isMoveableView = nil
-        }
-    }
+		if isMoveableView != nil {
+			isMoveableView!.removeFromSuperview()
+			isMoveableView = nil
+		}
+	}
 
-    func detectPan(recognizer: UIPanGestureRecognizer) {
-        print("Pan detected")
-        
-        let translation = recognizer.translationInView(self.superview)
-        self.delegate?.panDetected(CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y))
-        print("Pan valid. Center = \(CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y))")
-    }
+	@objc func detectPan(_ recognizer: UIPanGestureRecognizer) {
+		print("Pan detected")
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("Touches began")
-        print("Center: \(self.center)")
-        setLastLocation()
-    }
-    
-    func setLastLocation() {
-        lastLocation = self.center
-    }
-    
-    func getPoint(touchPoint: CGPoint) -> CGPoint {
-        return CGPointMake(lastLocation.x + (touchPoint.x - lastPointLocation.x), lastLocation.y + (touchPoint.y - lastPointLocation.y))
-    }
+		let translation = recognizer.translation(in: superview)
+		delegate?.panDetected(center: CGPoint(x: lastLocation.x + translation.x, y: lastLocation.y + translation.y))
+		print("Pan valid. Center = \(CGPoint(x: lastLocation.x + translation.x, y: lastLocation.y + translation.y))")
+	}
+
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		print("Touches began")
+		print("Center: \(center)")
+		setLastLocation()
+	}
+
+	func setLastLocation() {
+		lastLocation = center
+	}
+
+	func getPoint(touchPoint: CGPoint) -> CGPoint {
+		CGPoint(x: lastLocation.x + (touchPoint.x - lastPointLocation.x), y: lastLocation.y + (touchPoint.y - lastPointLocation.y))
+	}
 }

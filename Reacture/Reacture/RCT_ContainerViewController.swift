@@ -1,184 +1,176 @@
-//
-//  ContainerViewController.swift
-//  FlipPic
-//
-//  Created by Eric Mead & Paul Adams on 1/5/16.
-//  Copyright © 2016 BAEPS. All rights reserved.
-//
-
 import UIKit
 
+// MARK: - RCT_ContainerViewControllerProtocol
+
 protocol RCT_ContainerViewControllerProtocol {
-    func itemSelected(indexPath: NSIndexPath, optionSelected: OptionType)
+	func itemSelected(indexPath: IndexPath, optionSelected: OptionType)
 }
+
+// MARK: - RCT_ContainerViewController
 
 class RCT_ContainerViewController: UIViewController {
 
-    var optionSelected: OptionType = OptionType(rawValue: 0)!
-    var selectedFrameZero: CGRect?
-    var layoutSelected: Int  = 0
-    var filterSelected: Int  = 0
-    let borderWidth: CGFloat = 2.0
+	var optionSelected = OptionType(rawValue: 0)!
+	var selectedFrameZero: CGRect?
+	var layoutSelected = 0
+	var filterSelected = 0
+	let borderWidth: CGFloat = 2.0
 
-    @IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet var collectionView: UICollectionView!
 
-    // Filter Button Images
-    var arrayOfFilterButtonImageViews: [UIImageView] = []
-    var delegate: RCT_ContainerViewControllerProtocol?
-    override func viewDidLoad() {
-        setupCollectionView()
-    }
+	// Filter Button Images
+	var arrayOfFilterButtonImageViews: [UIImageView] = []
+	var delegate: RCT_ContainerViewControllerProtocol?
 
-    func loadFilterButtonImages(arrayOfImageViews: [UIImageView]) {
-        print("Handling Filter Button Images")
-        self.arrayOfFilterButtonImageViews = arrayOfImageViews
-        self.collectionView.reloadData()
-        print("Reloading Collection View")
-    }
+	override func viewDidLoad() {
+		setupCollectionView()
+	}
 
-    func reloadCollection() {
-        print("Collection View Reloaded")
+	func loadFilterButtonImages(arrayOfImageViews: [UIImageView]) {
+		print("Handling Filter Button Images")
+		arrayOfFilterButtonImageViews = arrayOfImageViews
+		collectionView.reloadData()
+		print("Reloading Collection View")
+	}
 
-        collectionView.reloadData()
+	func reloadCollection() {
+		print("Collection View Reloaded")
 
-        switch optionSelected {
-        case .Layout:
+		collectionView.reloadData()
 
-            collectionView.selectItemAtIndexPath(NSIndexPath(forItem: Int(layoutSelected), inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.CenteredHorizontally)
+		switch optionSelected {
+			case .layout:
+				collectionView.selectItem(at: IndexPath(item: layoutSelected, section: 0), animated: false, scrollPosition: .centeredHorizontally)
 
-        case .Filters:
-            collectionView.selectItemAtIndexPath(NSIndexPath(forItem: Int(filterSelected), inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.CenteredHorizontally)
-            
-        case .None:
-            break
+			case .filters:
+				collectionView.selectItem(at: IndexPath(item: filterSelected, section: 0), animated: false, scrollPosition: .centeredHorizontally)
 
-        }
-    }
+			case .none:
+				break
+		}
+	}
 
-    func setupCollectionView() {
-        collectionView.backgroundColor = UIColor.flipPicGray().colorWithAlphaComponent(1)
+	func setupCollectionView() {
+		collectionView.backgroundColor = UIColor.flipPicGray().withAlphaComponent(1)
 
-        switch optionSelected {
-        case .Layout:
-            print("Layout is Selected, Present Layout Options")
-        case .Filters:
-            print("Filter is Selected, Present Filter Options")
-        case .None:
-            print("None is selected. Hide stuff.")
-
-        }
-    }
+		switch optionSelected {
+			case .layout:
+				print("Layout is Selected, Present Layout Options")
+			case .filters:
+				print("Filter is Selected, Present Filter Options")
+			case .none:
+				print("None is selected. Hide stuff.")
+		}
+	}
 }
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension RCT_ContainerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("OptionItemCell", forIndexPath: indexPath) as! RCT_OptionItemCollectionViewCell
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionItemCell", for: indexPath) as! RCT_OptionItemCollectionViewCell
 
-        switch optionSelected {
-        case .Layout:
+		switch optionSelected {
+			case .layout:
 
-            cell.imageView.backgroundColor = UIColor.whiteColor()
-            if indexPath.item == layoutSelected {
-                cell.imageView.layer.borderWidth = borderWidth
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-                cell.imageView.backgroundColor = UIColor.flipPicGreen()
+				cell.imageView.backgroundColor = UIColor.white
+				if indexPath.item == layoutSelected {
+					cell.imageView.layer.borderWidth = borderWidth
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+					cell.imageView.backgroundColor = UIColor.flipPicGreen()
 
-            } else {
-                cell.imageView.layer.borderWidth = 0
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-            }
-            cell.label.hidden = true
-            cell.imageView.image = layoutIcons[indexPath.item]
+				} else {
+					cell.imageView.layer.borderWidth = 0
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+				}
+				cell.label.isHidden = true
+				cell.imageView.image = layoutIcons[indexPath.item]
 
-        case .Filters:
-            
-            cell.backgroundColor = UIColor.clearColor()
-            cell.label.textColor = UIColor.whiteColor()
-            cell.label.hidden = false
-            
-            if indexPath.item == filterSelected {
-                cell.imageView.layer.borderWidth = borderWidth
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-                cell.label.textColor = UIColor.flipPicGreen()
-            } else {
-                cell.imageView.layer.borderWidth = 0
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-            }
-            let labelText = String(Filter(rawValue: indexPath.item)!)
-            cell.label.text = labelText
-            // Setting Images for Filter Buttons
-            if self.arrayOfFilterButtonImageViews.count == Filter.Count.rawValue {
-                let imageView = arrayOfFilterButtonImageViews[indexPath.item]
-                let image = imageView.image
-                cell.imageView.image = image
-                cell.imageView.contentMode = .ScaleAspectFill
-            }
-            
-        case .None:
-            break
-            
-        }
-        return cell
-    }
+			case .filters:
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch optionSelected {
-        case .Layout:
-            return Layout.Count.rawValue
-        case .Filters:
-            return Filter.Count.rawValue
-        case .None:
-            return 0
-        }
-    }
+				cell.backgroundColor = UIColor.clear
+				cell.label.textColor = UIColor.white
+				cell.label.isHidden = false
 
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+				if indexPath.item == filterSelected {
+					cell.imageView.layer.borderWidth = borderWidth
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+					cell.label.textColor = UIColor.flipPicGreen()
+				} else {
+					cell.imageView.layer.borderWidth = 0
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+				}
+				let labelText = Filter(rawValue: indexPath.item)?.string
+				cell.label.text = labelText
+				// Setting Images for Filter Buttons
+				if arrayOfFilterButtonImageViews.count == Filter.count.rawValue {
+					let imageView = arrayOfFilterButtonImageViews[indexPath.item]
+					let image = imageView.image
+					cell.imageView.image = image
+					cell.imageView.contentMode = .scaleAspectFill
+				}
 
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! RCT_OptionItemCollectionViewCell
+			case .none:
+				break
+		}
+		return cell
+	}
 
-        cell.imageView.layer.borderWidth = borderWidth
-        cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		switch optionSelected {
+			case .layout:
+				return Layout.count.rawValue
+			case .filters:
+				return Filter.count.rawValue
+			case .none:
+				return 0
+		}
+	}
 
-        switch optionSelected {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        case .Layout:
-            layoutSelected = indexPath.item
-            cell.imageView.backgroundColor = UIColor.flipPicGreen()
+		let cell = collectionView.cellForItem(at: indexPath) as! RCT_OptionItemCollectionViewCell
 
-        case .Filters:
-            filterSelected = indexPath.item
-            cell.label.textColor = UIColor.flipPicGreen()
+		cell.imageView.layer.borderWidth = borderWidth
+		cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
 
-        case .None:
-            break
+		switch optionSelected {
 
-        }
-        delegate?.itemSelected(indexPath, optionSelected: optionSelected)
-    }
+			case .layout:
+				layoutSelected = indexPath.item
+				cell.imageView.backgroundColor = UIColor.flipPicGreen()
 
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+			case .filters:
+				filterSelected = indexPath.item
+				cell.label.textColor = UIColor.flipPicGreen()
 
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? RCT_OptionItemCollectionViewCell {
+			case .none:
+				break
+		}
+		delegate?.itemSelected(indexPath: indexPath, optionSelected: optionSelected)
+	}
 
-            switch optionSelected {
+	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+		if let cell = collectionView.cellForItem(at: indexPath) as? RCT_OptionItemCollectionViewCell {
 
-            case .Layout:
-                cell.imageView.layer.borderWidth = 0
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-                cell.imageView.backgroundColor = UIColor.whiteColor()
-                layoutSelected = indexPath.item
+			switch optionSelected {
 
-            case .Filters:
-                cell.imageView.layer.borderWidth = 0
-                cell.imageView.layer.borderColor = UIColor.flipPicGreen().CGColor
-                cell.label.textColor = UIColor.whiteColor()
-                filterSelected = indexPath.item
+				case .layout:
+					cell.imageView.layer.borderWidth = 0
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+					cell.imageView.backgroundColor = UIColor.white
+					layoutSelected = indexPath.item
 
-            case .None:
-                break
+				case .filters:
+					cell.imageView.layer.borderWidth = 0
+					cell.imageView.layer.borderColor = UIColor.flipPicGreen().cgColor
+					cell.label.textColor = UIColor.white
+					filterSelected = indexPath.item
 
-            }
-        }
-    }
+				case .none:
+					break
+			}
+		}
+	}
 }

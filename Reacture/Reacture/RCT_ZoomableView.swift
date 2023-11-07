@@ -1,107 +1,107 @@
-//
-//  ZoomableView.swift
-//  FlipPic
-//
-//  Created by Benjamin Patch on 1/15/16.
-//  Copyright © 2016 BAEPS. All rights reserved.
-//
-
+import SpriteKit
 import UIKit
 
 class ZoomableView: UIView {
 
-    //////////////////////////////
-    // MARK: Variables
-    //////////////////////////////
+	// MARK: Internal
 
-    private var shapeLayer = CAShapeLayer()
+	var scrollView: UIScrollView!
 
-    var maskLayout: MaskLayout = MaskLayout.None {
-        didSet {
-            setNeedsLayout()
-        }
-    }
+	var maskLayout = MaskLayout.none {
+		didSet {
+			setNeedsLayout()
+		}
+	}
 
-    var scrollView: UIScrollView!
+	//////////////////////////////
 
-    //////////////////////////////
-    // MARK: Functions
-    //////////////////////////////
+	// MARK: Functions
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateShape()
-    }
+	//////////////////////////////
 
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        // Specify if a touch should be considered valid
-        // Not valid if in the mask area.
-        if RCT_LayoutController.isCornersLayout {
-            return CGPathContainsPoint(shapeLayer.path, nil, layer.convertPoint(point, fromLayer: shapeLayer), false)
-        } else {
-            return super.pointInside(point, withEvent: event)
-        }
-    }
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		updateShape()
+	}
 
-    private func updateShape() {
+	override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+		// Specify if a touch should be considered valid
+		// Not valid if in the mask area.
+		if RCT_LayoutController.isCornersLayout {
+			if let path = shapeLayer.path {
+				let convertedPoint = layer.convert(point, to: shapeLayer)
+				return path.contains(convertedPoint)
+			}
+		}
+		return super.point(inside: point, with: event)
+	}
 
-        layer.mask = nil
+	// MARK: Private
 
-        if let pathLayout = pathForLayout(maskLayout) {
-            let path = pathLayout.CGPath
-            shapeLayer.frame = self.frame
-            shapeLayer.path = path
-            layer.mask = shapeLayer
-        }
-    }
+	//////////////////////////////
 
-    private func pathForLayout(maskLayout: MaskLayout) -> UIBezierPath? {
+	// MARK: Variables
 
-        var path: UIBezierPath! = UIBezierPath()
+	//////////////////////////////
 
-        let layerHeight = self.bounds.height
-        let layerWidth = self.bounds.width
+	private var shapeLayer = CAShapeLayer()
 
-        let topRightPoint = CGPointMake(layerWidth, 0)
-        let topLeftPoint = CGPointMake(0, 0)
-        let bottomRightPoint = CGPointMake(layerWidth, layerHeight)
-        let bottomLeftPoint = CGPointMake(0, layerHeight)
+	private func updateShape() {
 
-        print("test: Layout: \(maskLayout) selected")
+		layer.mask = nil
 
-        switch maskLayout {
+		if let pathLayout = pathForLayout(maskLayout: maskLayout) {
+			let path = pathLayout.cgPath
+			shapeLayer.frame = frame
+			shapeLayer.path = path
+			layer.mask = shapeLayer
+		}
+	}
 
-        case .None:
-            path = nil
+	private func pathForLayout(maskLayout: MaskLayout) -> UIBezierPath? {
 
-        case .TopRight:
+		var path: UIBezierPath! = UIBezierPath()
 
-            path.moveToPoint(bottomRightPoint)
-            path.addLineToPoint(topRightPoint)
-            path.addLineToPoint(topLeftPoint)
-            path.addLineToPoint(bottomRightPoint)
+		let layerHeight = bounds.height
+		let layerWidth = bounds.width
 
-        case .BottomLeft:
+		let topRightPoint = CGPoint(x: layerWidth, y: 0)
+		let topLeftPoint = CGPoint(x: 0, y: 0)
+		let bottomRightPoint = CGPoint(x: layerWidth, y: layerHeight)
+		let bottomLeftPoint = CGPoint(x: 0, y: layerHeight)
 
-            path.moveToPoint(bottomRightPoint)
-            path.addLineToPoint(bottomLeftPoint)
-            path.addLineToPoint(topLeftPoint)
-            path.addLineToPoint(bottomRightPoint)
+		print("test: Layout: \(maskLayout) selected")
 
-        case .TopLeft:
+		switch maskLayout {
 
-            path.moveToPoint(bottomLeftPoint)
-            path.addLineToPoint(topLeftPoint)
-            path.addLineToPoint(topRightPoint)
-            path.addLineToPoint(bottomLeftPoint)
+			case .none:
+				path = nil
 
-        case .BottomRight:
+			case .topRight:
+				path.move(to: bottomRightPoint)
+				path.addLine(to: topRightPoint)
+				path.addLine(to: topLeftPoint)
+				path.addLine(to: bottomRightPoint)
 
-            path.moveToPoint(bottomLeftPoint)
-            path.addLineToPoint(bottomRightPoint)
-            path.addLineToPoint(topRightPoint)
-            path.addLineToPoint(bottomLeftPoint)
-        }
-        return path
-    }
+			case .bottomLeft:
+				path.move(to: bottomRightPoint)
+				path.addLine(to: bottomLeftPoint)
+				path.addLine(to: topLeftPoint)
+				path.addLine(to: bottomRightPoint)
+
+			case .topLeft:
+				path.move(to: bottomLeftPoint)
+				path.addLine(to: topLeftPoint)
+				path.addLine(to: topRightPoint)
+				path.addLine(to: bottomLeftPoint)
+
+			case .bottomRight:
+				path.move(to: bottomLeftPoint)
+				path.addLine(to: bottomRightPoint)
+				path.addLine(to: topRightPoint)
+				path.addLine(to: bottomLeftPoint)
+		}
+
+		return path
+	}
 }

@@ -1,35 +1,31 @@
-//
-//  RCT_Image.swift
-//  FlipPic
-//
-//  Created by Benjamin Patch on 1/5/16.
-//  Copyright © 2016 BAEPS. All rights reserved.
-//
-
 import UIKit
 
 class RCT_Image {
 
-    // Front is FaceTime Camera (front)
-    var imageFrontCIImage: CIImage
+	// MARK: Lifecycle
 
-    // Back is iSight HD Camera (back)
-    var imageBackCIImage: CIImage
-    var originalImageFrontCIImage: CIImage
-    var originalImageBackCIImage: CIImage
+	init(imageFront: UIImage, imageBack: UIImage, layout: Layout = Layout(rawValue: 0)!) {
+		imageFrontUIImage = imageFront
+		imageBackUIImage = imageBack
+		imageFrontCIImage = CIImage(image: imageFront)!
+		imageBackCIImage = CIImage(image: imageBack)!
+		originalImageFrontCIImage = imageFrontCIImage.copy() as! CIImage
+		originalImageBackCIImage = imageBackCIImage.copy() as! CIImage
+		self.layout = layout
+	}
 
-    // UIImage Conversion Variables
-    var imageFrontUIImage: UIImage
-    var imageBackUIImage: UIImage
-    var layout: Layout
+	// MARK: Internal
 
-    init(imageFront: UIImage, imageBack: UIImage, layout: Layout = Layout(rawValue: 0)!) {
-        self.imageFrontUIImage = imageFront
-        self.imageBackUIImage = imageBack
-        self.imageFrontCIImage = CIImage(image: imageFront)!
-        self.imageBackCIImage = CIImage(image: imageBack)!
-        self.originalImageFrontCIImage = imageFrontCIImage.copy() as! CIImage
-        self.originalImageBackCIImage = imageBackCIImage.copy() as! CIImage
-        self.layout = layout
-    }
+	// Front is FaceTime Camera (front)
+	var imageFrontCIImage: CIImage
+
+	// Back is iSight HD Camera (back)
+	var imageBackCIImage: CIImage
+	var originalImageFrontCIImage: CIImage
+	var originalImageBackCIImage: CIImage
+
+	// UIImage Conversion Variables
+	var imageFrontUIImage: UIImage
+	var imageBackUIImage: UIImage
+	var layout: Layout
 }

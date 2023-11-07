@@ -1,158 +1,148 @@
-//
-//  UIViewExtension.swift
-//  FlipPic
-//
-//  Created by Andrew Porter on 1/16/16.
-//  Copyright © 2016 BAEPS. All rights reserved.
-//
-
 import UIKit
 
 extension UIView {
 
-    private var littleLineWidthPercentage: CGFloat { return 0.5 }
+	private var littleLineWidthPercentage: CGFloat { 0.5 }
 
-    func leftBorder(littleImage: Bool = false) -> CALayer {
+	func leftBorder(littleImage: Bool = false) -> CALayer {
 
-        var lineWidth = RCT_EditViewController.lineWidth
-        if littleImage { lineWidth *= littleLineWidthPercentage }
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.whiteColor().CGColor
-        layer.frame = CGRectMake(0.0, 0.0, lineWidth, self.frame.height)
+		var lineWidth = RCT_EditViewController.lineWidth
+		if littleImage { lineWidth *= littleLineWidthPercentage }
+		let layer = CALayer()
+		layer.backgroundColor = UIColor.white.cgColor
+		layer.frame = CGRect(x: 0.0, y: 0.0, width: lineWidth, height: frame.height)
 
-        return layer
-    }
+		return layer
+	}
 
-    func rightBorder(littleImage: Bool = false) -> CALayer {
+	func rightBorder(littleImage: Bool = false) -> CALayer {
 
-        var lineWidth = RCT_EditViewController.lineWidth
-        if littleImage { lineWidth *= littleLineWidthPercentage }
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.whiteColor().CGColor
-        layer.frame = CGRectMake(self.bounds.maxX - lineWidth, 0.0, lineWidth, self.bounds.height)
+		var lineWidth = RCT_EditViewController.lineWidth
+		if littleImage { lineWidth *= littleLineWidthPercentage }
+		let layer = CALayer()
+		layer.backgroundColor = UIColor.white.cgColor
+		layer.frame = CGRect(x: bounds.maxX - lineWidth, y: 0.0, width: lineWidth, height: bounds.height)
 
-        return layer
-    }
+		return layer
+	}
 
-    func topBorder(littleImage: Bool = false) -> CALayer {
+	func topBorder(littleImage: Bool = false) -> CALayer {
 
-        var lineWidth = RCT_EditViewController.lineWidth
-        if littleImage { lineWidth *= littleLineWidthPercentage }
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.whiteColor().CGColor
-        layer.frame = CGRectMake(0.0, 0.0, self.frame.width, lineWidth)
+		var lineWidth = RCT_EditViewController.lineWidth
+		if littleImage { lineWidth *= littleLineWidthPercentage }
+		let layer = CALayer()
+		layer.backgroundColor = UIColor.white.cgColor
+		layer.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: lineWidth)
 
-        return layer
-    }
+		return layer
+	}
 
-    func bottomBorder(littleImage: Bool = false) -> CALayer {
+	func bottomBorder(littleImage: Bool = false) -> CALayer {
 
-        var lineWidth = RCT_EditViewController.lineWidth
-        if littleImage { lineWidth *= littleLineWidthPercentage }
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.whiteColor().CGColor
-        layer.frame = CGRectMake(0.0, self.bounds.maxY - lineWidth, self.bounds.width, lineWidth)
+		var lineWidth = RCT_EditViewController.lineWidth
+		if littleImage { lineWidth *= littleLineWidthPercentage }
+		let layer = CALayer()
+		layer.backgroundColor = UIColor.white.cgColor
+		layer.frame = CGRect(x: 0.0, y: bounds.maxY - lineWidth, width: bounds.width, height: lineWidth)
 
-        return layer
-    }
+		return layer
+	}
 
-    private var topLeftToBottomRightBorder: CAShapeLayer {
+	private var topLeftToBottomRightBorder: CAShapeLayer {
 
-        let layer = CAShapeLayer()
-        let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(0.0, 0.0))
-        path.addLineToPoint(CGPointMake(self.bounds.maxX, self.bounds.maxY))
-        layer.path = path.CGPath
-        layer.strokeColor = UIColor.whiteColor().CGColor
-        layer.lineWidth = RCT_EditViewController.lineWidth
-        layer.fillColor = UIColor.clearColor().CGColor
+		let layer = CAShapeLayer()
+		let path = UIBezierPath()
+		path.move(to: CGPoint(x: 0.0, y: 0.0))
+		path.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
+		layer.path = path.cgPath
+		layer.strokeColor = UIColor.white.cgColor
+		layer.lineWidth = RCT_EditViewController.lineWidth
+		layer.fillColor = UIColor.clear.cgColor
 
-        return layer
-    }
+		return layer
+	}
 
-    private var topRightToBottomLeftBorder: CAShapeLayer {
+	private var topRightToBottomLeftBorder: CAShapeLayer {
 
-        let layer = CAShapeLayer()
-        let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(self.bounds.maxX, 0.0))
-        path.addLineToPoint(CGPointMake(0.0, self.bounds.maxY))
-        layer.path = path.CGPath
-        layer.strokeColor = UIColor.whiteColor().CGColor
-        layer.lineWidth = RCT_EditViewController.lineWidth
-        layer.fillColor = UIColor.clearColor().CGColor
+		let layer = CAShapeLayer()
+		let path = UIBezierPath()
+		path.move(to: CGPoint(x: bounds.maxX, y: 0.0))
+		path.addLine(to: CGPoint(x: 0.0, y: bounds.maxY))
+		layer.path = path.cgPath
+		layer.strokeColor = UIColor.white.cgColor
+		layer.lineWidth = RCT_EditViewController.lineWidth
+		layer.fillColor = UIColor.clear.cgColor
 
-        return layer
-    }
+		return layer
+	}
 
-    func removeBorders() {
-        print("Before: \(layer.sublayers?.count)")
+	func removeBorders() {
+		print("Before: \(layer.sublayers?.count)")
 
-        if layer.sublayers?.count > 1 {
-            var index = 0
-            layer.sublayers?.forEach({ (layer) -> () in
-                if index != 0 {
-                    layer.removeFromSuperlayer()
-                }
-                index += 1
-            })
-        }
+		if (layer.sublayers?.count ?? 0) > 1 {
+			var index = 0
+			layer.sublayers?.forEach { layer in
+				if index != 0 {
+					layer.removeFromSuperlayer()
+				}
+				index += 1
+			}
+		}
 
-        print("After: \(layer.sublayers?.count)")
+		print("After: \(layer.sublayers?.count)")
+	}
 
-    }
+	func updateBorderForLayout(layout: SubLayout) {
 
-    func updateBorderForLayout(layout: SubLayout) {
+		print(layer.sublayers?.count)
 
+		switch layout {
 
-        print(layer.sublayers?.count)
+			case .bottom:
+				layer.addSublayer(leftBorder())
+				layer.addSublayer(rightBorder())
+				layer.addSublayer(bottomBorder())
 
-        switch layout {
+			case .top:
+				layer.addSublayer(leftBorder())
+				layer.addSublayer(rightBorder())
+				layer.addSublayer(topBorder())
 
-        case .Bottom:
-            self.layer.addSublayer(leftBorder())
-            self.layer.addSublayer(rightBorder())
-            self.layer.addSublayer(bottomBorder())
+			case .left:
+				layer.addSublayer(leftBorder())
+				layer.addSublayer(topBorder())
+				layer.addSublayer(bottomBorder())
 
-        case .Top:
-            self.layer.addSublayer(leftBorder())
-            self.layer.addSublayer(rightBorder())
-            self.layer.addSublayer(topBorder())
+			case .right:
+				layer.addSublayer(rightBorder())
+				layer.addSublayer(topBorder())
+				layer.addSublayer(bottomBorder())
 
-        case .Left:
-            self.layer.addSublayer(leftBorder())
-            self.layer.addSublayer(topBorder())
-            self.layer.addSublayer(bottomBorder())
+			case .topRight:
+				layer.addSublayer(topLeftToBottomRightBorder)
 
-        case .Right:
-            self.layer.addSublayer(rightBorder())
-            self.layer.addSublayer(topBorder())
-            self.layer.addSublayer(bottomBorder())
+			case .bottomRight:
+				layer.addSublayer(topRightToBottomLeftBorder)
 
-        case .TopRight:
-            self.layer.addSublayer(topLeftToBottomRightBorder)
+			case .topLeft:
+				layer.addSublayer(topRightToBottomLeftBorder)
 
-        case .BottomRight:
-            self.layer.addSublayer(topRightToBottomLeftBorder)
+			case .bottomLeft:
+				layer.addSublayer(topLeftToBottomRightBorder)
 
-        case .TopLeft:
-            self.layer.addSublayer(topRightToBottomLeftBorder)
+			case .bigPicture:
+				layer.addSublayer(leftBorder())
+				layer.addSublayer(topBorder())
+				layer.addSublayer(bottomBorder())
+				layer.addSublayer(rightBorder())
 
-        case .BottomLeft:
-            self.layer.addSublayer(topLeftToBottomRightBorder)
-
-        case .BigPicture:
-            self.layer.addSublayer(leftBorder())
-            self.layer.addSublayer(topBorder())
-            self.layer.addSublayer(bottomBorder())
-            self.layer.addSublayer(rightBorder())
-
-        case .LittlePicture:
-            self.layer.addSublayer(leftBorder(true))
-            self.layer.addSublayer(topBorder(true))
-            self.layer.addSublayer(bottomBorder(true))
-            self.layer.addSublayer(rightBorder(true))
-        case .None:
-            break
-        }
-    }
+			case .littlePicture:
+				layer.addSublayer(leftBorder(littleImage: true))
+				layer.addSublayer(topBorder(littleImage: true))
+				layer.addSublayer(bottomBorder(littleImage: true))
+				layer.addSublayer(rightBorder(littleImage: true))
+			case .none:
+				break
+		}
+	}
 }

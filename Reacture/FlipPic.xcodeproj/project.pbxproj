@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		24B8717B1C3C5E140019DB37 /* RCT_EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */; };
 		24F919211C4AF79E005A47EA /* photoShutter2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 24F919201C4AF79E005A47EA /* photoShutter2.caf */; };
 		24F9B4471C4A5C1600C85662 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		2DCA849F75A370C6BE1678FC /* Pods_FlipPic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */; };
 		716D6A281C3C462B00B762F9 /* RCT_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716D6A271C3C462B00B762F9 /* RCT_AppDelegate.swift */; };
 		716D6A2D1C3C462B00B762F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716D6A2B1C3C462B00B762F9 /* Main.storyboard */; };
 		716D6A2F1C3C462B00B762F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716D6A2E1C3C462B00B762F9 /* Assets.xcassets */; };
@@ -30,6 +29,14 @@
 		970A5C171C5098EF00581779 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970A5C161C5098EF00581779 /* Launch Screen.storyboard */; };
 		9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */; };
 		979B738F1C4F103F008EB3C7 /* RCT_UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */; };
+		989D11C92AF4DF6D00BBA089 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11C82AF4DF6D00BBA089 /* FirebaseAnalytics */; };
+		989D11CB2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11CA2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion */; };
+		989D11CD2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11CC2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift */; };
+		989D11CF2AF4DF6D00BBA089 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11CE2AF4DF6D00BBA089 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		989D11D12AF4DF6D00BBA089 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11D02AF4DF6D00BBA089 /* FirebaseCrashlytics */; };
+		989D11D32AF4DF6D00BBA089 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11D22AF4DF6D00BBA089 /* FirebaseInstallations */; };
+		989D11D52AF4DF6D00BBA089 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11D42AF4DF6D00BBA089 /* FirebasePerformance */; };
+		989D11D72AF4E04900BBA089 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989D11D62AF4E04900BBA089 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +46,6 @@
 		24B871781C3C5D8A0019DB37 /* RCT_CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_CameraViewController.swift; sourceTree = "<group>"; };
 		24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_EditViewController.swift; sourceTree = "<group>"; };
 		24F919201C4AF79E005A47EA /* photoShutter2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = photoShutter2.caf; sourceTree = "<group>"; };
-		25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipPic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic.debug.xcconfig"; sourceTree = "<group>"; };
-		37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlipPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716D6A241C3C462B00B762F9 /* FlipPic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipPic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		716D6A271C3C462B00B762F9 /* RCT_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCT_AppDelegate.swift; sourceTree = "<group>"; };
 		716D6A2C1C3C462B00B762F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,7 +63,7 @@
 		970A5C161C5098EF00581779 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Reacture/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9711D1311CEED4EF00F537E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Reacture/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_UIColorExtension.swift; sourceTree = "<group>"; };
-		9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipPic.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic.release.xcconfig"; sourceTree = "<group>"; };
+		989D11D62AF4E04900BBA089 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Reacture/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +71,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCA849F75A370C6BE1678FC /* Pods_FlipPic.framework in Frameworks */,
+				989D11CD2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift in Frameworks */,
+				989D11D32AF4DF6D00BBA089 /* FirebaseInstallations in Frameworks */,
+				989D11CF2AF4DF6D00BBA089 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				989D11C92AF4DF6D00BBA089 /* FirebaseAnalytics in Frameworks */,
+				989D11D12AF4DF6D00BBA089 /* FirebaseCrashlytics in Frameworks */,
+				989D11CB2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				989D11D52AF4DF6D00BBA089 /* FirebasePerformance in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,10 +123,9 @@
 				716D6A2B1C3C462B00B762F9 /* Main.storyboard */,
 				716D6A2E1C3C462B00B762F9 /* Assets.xcassets */,
 				716D6A331C3C462B00B762F9 /* Info.plist */,
+				989D11D62AF4E04900BBA089 /* GoogleService-Info.plist */,
 				716D6A261C3C462B00B762F9 /* FlipPic */,
 				716D6A251C3C462B00B762F9 /* Products */,
-				B8FBE648F4C9729202F6C439 /* Pods */,
-				F2957FE3AAFA0BEF503AABCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,23 +155,6 @@
 			path = Reacture;
 			sourceTree = "<group>";
 		};
-		B8FBE648F4C9729202F6C439 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */,
-				9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F2957FE3AAFA0BEF503AABCB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				37EF180B04D340B46CB9499E /* Pods_FlipPic.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,19 +162,25 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 716D6A361C3C462B00B762F9 /* Build configuration list for PBXNativeTarget "FlipPic" */;
 			buildPhases = (
-				34C8D054E3F443F74C953F62 /* 📦 Check Pods Manifest.lock */,
 				716D6A201C3C462B00B762F9 /* Sources */,
 				716D6A211C3C462B00B762F9 /* Frameworks */,
 				716D6A221C3C462B00B762F9 /* Resources */,
-				1B0C3BE17EECD9C2DD0C1C65 /* 📦 Embed Pods Frameworks */,
-				30E6CD95D962EA205C719204 /* 📦 Copy Pods Resources */,
-				9711D12F1CEE6EDE00F537E5 /* ShellScript */,
+				989D11DB2AF4E3F000BBA089 /* Crashlytics */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FlipPic;
+			packageProductDependencies = (
+				989D11C82AF4DF6D00BBA089 /* FirebaseAnalytics */,
+				989D11CA2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion */,
+				989D11CC2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift */,
+				989D11CE2AF4DF6D00BBA089 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				989D11D02AF4DF6D00BBA089 /* FirebaseCrashlytics */,
+				989D11D22AF4DF6D00BBA089 /* FirebaseInstallations */,
+				989D11D42AF4DF6D00BBA089 /* FirebasePerformance */,
+			);
 			productName = Reacture;
 			productReference = 716D6A241C3C462B00B762F9 /* FlipPic.app */;
 			productType = "com.apple.product-type.application";
@@ -207,10 +206,14 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 716D6A1B1C3C462B00B762F9;
+			packageReferences = (
+				989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 716D6A251C3C462B00B762F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,69 +233,35 @@
 				970A5C171C5098EF00581779 /* Launch Screen.storyboard in Resources */,
 				9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */,
 				716D6A2D1C3C462B00B762F9 /* Main.storyboard in Resources */,
+				989D11D72AF4E04900BBA089 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B0C3BE17EECD9C2DD0C1C65 /* 📦 Embed Pods Frameworks */ = {
+		989D11DB2AF4E3F000BBA089 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		30E6CD95D962EA205C719204 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
 			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlipPic/Pods-FlipPic-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		34C8D054E3F443F74C953F62 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9711D12F1CEE6EDE00F537E5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+			name = Crashlytics;
+			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" d7eff75c321d6961fdf8aa2a32b8b1608192e3ee ddc1597a16fc8e9401f80bae586afdbe450882e25d0997bd6b01a175e957534d";
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -429,7 +398,6 @@
 		};
 		716D6A371C3C462B00B762F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25D1BF3C4CE7EE07ACB58CBE /* Pods-FlipPic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -437,27 +405,34 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Reacture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		716D6A381C3C462B00B762F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F9FDFC557BFB1DA7B679287 /* Pods-FlipPic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Reacture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -484,6 +459,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		989D11C82AF4DF6D00BBA089 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		989D11CA2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		989D11CC2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		989D11CE2AF4DF6D00BBA089 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		989D11D02AF4DF6D00BBA089 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		989D11D22AF4DF6D00BBA089 /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
+		};
+		989D11D42AF4DF6D00BBA089 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989D11C72AF4DF6D00BBA089 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 716D6A1C1C3C462B00B762F9 /* Project object */;
 }

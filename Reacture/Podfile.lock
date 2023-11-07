@@ -1,21 +1,20 @@
 PODS:
-  - Crashlytics (3.7.2):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - LaunchKit (2.1.4):
-    - LaunchKit/LaunchKit (= 2.1.4)
-  - LaunchKit/LaunchKit (2.1.4)
+  - SwiftFormat/CLI (0.52.8)
+  - SwiftLint (0.53.0)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
-  - LaunchKit
+  - SwiftFormat/CLI
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SwiftFormat
+    - SwiftLint
 
 SPEC CHECKSUMS:
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  LaunchKit: 95ad4fb171a0f8ea1c80aa26d4fb7bd637788f9c
+  SwiftFormat: e60dbe6a704faf75f3089744e5f508aae0be4ad5
+  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
 
-PODFILE CHECKSUM: d0e57ce12ec37f6259ffd752b8cf0f96beae8822
+PODFILE CHECKSUM: 7eb15036f2389978271a4251c80b568d6e3f3304
 
-COCOAPODS: 1.0.0.beta.5
+COCOAPODS: 1.12.1
