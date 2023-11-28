@@ -428,22 +428,20 @@ class RCT_EditViewController: UIViewController {
 
 	// TODO: camelCase CancelButtonTapped
 
-	@IBAction func doneButtonTapped(sender: AnyObject) {
-
-		//        animateContainerView(true)
+	@IBAction func doneButtonTapped(_ sender: AnyObject) {
 		optionSelected(option: .none)
 	}
 
-	@IBAction func cancelButtonTapped(sender: AnyObject) {
+	@IBAction func cancelButtonTapped(_ sender: AnyObject) {
 		dismiss(animated: true, completion: nil)
 		print("Cancel Button Tapped")
 	}
 
-	@IBAction func swapImageButtonTapped(sender: AnyObject) {
+	@IBAction func swapImageButtonTapped(_ sender: AnyObject) {
 		swapImages()
 	}
 
-	@IBAction func shareButtonTapped(sender: AnyObject) {
+	@IBAction func shareButtonTapped(_ sender: AnyObject) {
 		frontImageZoomableView.removeIsMovableView()
 		imageCapture()
 		print("Share Button Tapped")
@@ -456,7 +454,7 @@ class RCT_EditViewController: UIViewController {
 		}
 	}
 
-	@IBAction func layoutButtonTapped(sender: AnyObject) {
+	@IBAction func layoutButtonTapped(_ sender: AnyObject) {
 		print("Layout Button Tapped")
 
 		optionSelected(option: OptionType.layout)
@@ -777,7 +775,7 @@ extension RCT_EditViewController {
 			beginFrontImage = CIImage(image: frontImage)
 		}
 
-		var options: [String: AnyObject]?
+        var options: [String: AnyObject]? = [:]
 		if filterName == "None" {
 			filterName = "CISepiaTone"
 			options = ["inputIntensity": 0 as AnyObject]
@@ -786,6 +784,7 @@ extension RCT_EditViewController {
 		// Getting Output Using Filter Name Parameter and Options
 
 		// Front Image:
+        
 		if let outputImage = beginFrontImage?.applyingFilter(filterName, parameters: options!) {
 			print("Front Thumbnail Image Name: \(filterName)")
 			let cGImage: CGImage = context.createCGImage(outputImage, from: outputImage.extent)!
