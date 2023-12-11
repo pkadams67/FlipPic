@@ -70,16 +70,16 @@ class RCT_EditViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		RCT_ImageViewBackgroundView.backgroundColor = UIColor.flipPicGray()
-		view.backgroundColor = UIColor.flipPicGray()
-		containerView.backgroundColor = UIColor.flipPicGray()
-		toolbar.backgroundColor = UIColor.flipPicGray()
+//		RCT_ImageViewBackgroundView.backgroundColor = UIColor.flipPicGray()
+//		view.backgroundColor = UIColor.flipPicGray()
+//		containerView.backgroundColor = UIColor.flipPicGray()
+//		toolbar.backgroundColor = UIColor.flipPicGray()
 		toolbarLayoutOption.tintColor = UIColor.white
 		toolbarFilterOption.tintColor = UIColor.white
 		toolbar.clipsToBounds = true
 		containerViewController = children.first! as? RCT_ContainerViewController
 		containerViewController?.delegate = self
-		containerViewController!.view.backgroundColor = UIColor.flipPicGray()
+//		containerViewController!.view.backgroundColor = UIColor.flipPicGray()
 		optionSelected(option: .none)
 		doneUIButton.setTitleColor(UIColor.flipPicBlue(), for: .normal)
 

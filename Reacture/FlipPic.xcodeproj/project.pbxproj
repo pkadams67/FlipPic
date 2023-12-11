@@ -29,6 +29,9 @@
 		970A5C171C5098EF00581779 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970A5C161C5098EF00581779 /* Launch Screen.storyboard */; };
 		9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9711D1301CEED4EF00F537E5 /* LaunchScreen.storyboard */; };
 		979B738F1C4F103F008EB3C7 /* RCT_UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */; };
+		982D92812B24458A00C40CDD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982D92802B24458A00C40CDD /* CameraViewController.swift */; };
+		982D92832B2455BD00C40CDD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 982D92822B2455BD00C40CDD /* Colors.xcassets */; };
+		982D92852B24573100C40CDD /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982D92842B24573100C40CDD /* EditImageViewController.swift */; };
 		989D11C92AF4DF6D00BBA089 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11C82AF4DF6D00BBA089 /* FirebaseAnalytics */; };
 		989D11CB2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11CA2AF4DF6D00BBA089 /* FirebaseAnalyticsOnDeviceConversion */; };
 		989D11CD2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 989D11CC2AF4DF6D00BBA089 /* FirebaseAnalyticsSwift */; };
@@ -63,6 +66,9 @@
 		970A5C161C5098EF00581779 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Reacture/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9711D1311CEED4EF00F537E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Reacture/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		979B738E1C4F103F008EB3C7 /* RCT_UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCT_UIColorExtension.swift; sourceTree = "<group>"; };
+		982D92802B24458A00C40CDD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		982D92822B2455BD00C40CDD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		982D92842B24573100C40CDD /* EditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
 		989D11D62AF4E04900BBA089 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Reacture/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,9 +93,11 @@
 		24B871751C3C5CCB0019DB37 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				982D92802B24458A00C40CDD /* CameraViewController.swift */,
+				982D92842B24573100C40CDD /* EditImageViewController.swift */,
+				24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */,
 				24B871781C3C5D8A0019DB37 /* RCT_CameraViewController.swift */,
 				24B871711C3C5B7E0019DB37 /* RCT_ContainerViewController.swift */,
-				24B8717A1C3C5E140019DB37 /* RCT_EditViewController.swift */,
 				24B871731C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift */,
 			);
 			name = ViewControllers;
@@ -122,6 +130,7 @@
 				970A5C161C5098EF00581779 /* Launch Screen.storyboard */,
 				716D6A2B1C3C462B00B762F9 /* Main.storyboard */,
 				716D6A2E1C3C462B00B762F9 /* Assets.xcassets */,
+				982D92822B2455BD00C40CDD /* Colors.xcassets */,
 				716D6A331C3C462B00B762F9 /* Info.plist */,
 				989D11D62AF4E04900BBA089 /* GoogleService-Info.plist */,
 				716D6A261C3C462B00B762F9 /* FlipPic */,
@@ -233,6 +242,7 @@
 				9711D1321CEED4EF00F537E5 /* LaunchScreen.storyboard in Resources */,
 				716D6A2D1C3C462B00B762F9 /* Main.storyboard in Resources */,
 				989D11D72AF4E04900BBA089 /* GoogleService-Info.plist in Resources */,
+				982D92832B2455BD00C40CDD /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +285,9 @@
 				719224451C3C886B00CEE9E4 /* RCT_ImageController.swift in Sources */,
 				24B8717B1C3C5E140019DB37 /* RCT_EditViewController.swift in Sources */,
 				719224491C3D862E00CEE9E4 /* RCT_LayoutController.swift in Sources */,
+				982D92812B24458A00C40CDD /* CameraViewController.swift in Sources */,
 				24B871741C3C5C780019DB37 /* RCT_OptionItemCollectionViewCell.swift in Sources */,
+				982D92852B24573100C40CDD /* EditImageViewController.swift in Sources */,
 				71C889CB1C4EE5FA00F6119C /* RCT_UIViewExtension.swift in Sources */,
 				24B871791C3C5D8A0019DB37 /* RCT_CameraViewController.swift in Sources */,
 				24B871721C3C5B7E0019DB37 /* RCT_ContainerViewController.swift in Sources */,
