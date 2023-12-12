@@ -20,7 +20,6 @@ class EditImageViewController: UIViewController {
     @IBOutlet var rCTImageView: UIView!
     @IBOutlet var topBar: UIStackView!
     @IBOutlet var doneButton: UIBarButtonItem!
-//    @IBOutlet var doneButtonFlexSpace: UIBarButtonItem!
     @IBOutlet var doneUIButton: UIButton!
     @IBOutlet var swapImagesBarButton: UIBarButtonItem!
     @IBOutlet var swapImagesUIButton: UIButton!
@@ -35,9 +34,13 @@ class EditImageViewController: UIViewController {
     var frontImageScrollView = UIScrollView()
     var backImageZoomableView = ZoomableView()
     var backImageScrollView = UIScrollView()
+    
+    var containerViewController: RCT_ContainerViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupView()
         
         if let rCTImage = self.rCTImage {
             self.setupController(rCTImage: rCTImage)
@@ -71,18 +74,43 @@ extension EditImageViewController {
         present(shareViewController, animated: true, completion: nil)
     }
     
+    @IBAction func doneButtonTapped(_ sender: AnyObject) {
+//        optionSelected(option: .none)
+    }
+    
+    @IBAction func layoutButtonTapped(_ sender: AnyObject) {
+        print("Layout Button Tapped")
+//        optionSelected(option: OptionType.layout)
+    }
+
+    @IBAction func filterButtonTapped(sender: AnyObject) {
+        print("Filter Button Tapped")
+//        optionSelected(option: OptionType.filters)
+    }
+    
 }
 
 // MARK: - Private methods
 
 extension EditImageViewController {
     
+    private func setupView() {
+        
+//        toolbarLayoutOption.tintColor = UIColor.white
+//        toolbarFilterOption.tintColor = UIColor.white
+        toolbar.clipsToBounds = true
+        containerViewController = children.first! as? RCT_ContainerViewController
+//        containerViewController?.delegate = self
+//        optionSelected(option: .none)
+        doneUIButton.setTitleColor(UIColor.flipPicBlue(), for: .normal)
+    }
+    
     private func setupController(rCTImage: RCT_Image) {
         self.rCTImage = rCTImage
         
         // setup zoomable views
         frontImageZoomableView = PanGestureView(frame: CGRect(x: 0.0, y: 0.0, width: rCTImageView.bounds.width, height: rCTImageView.bounds.height / 2))
-        //        frontImageZoomableView.delegate = self
+        frontImageZoomableView.delegate = self
         backImageZoomableView = ZoomableView(frame: CGRect(x: 0.0, y: rCTImageView.bounds.maxY / 2, width: rCTImageView.bounds.width, height: rCTImageView.bounds.height / 2))
         
         rCTImageView.addSubview(backImageZoomableView)
@@ -105,9 +133,9 @@ extension EditImageViewController {
         self.backImageScrollView = UIScrollView(frame: self.backImageZoomableView.bounds)
         self.backImageScrollView.delegate = self
         self.backImageScrollView.backgroundColor = UIColor.flipPicGray()
-                
+        
         self.backImageZoomableView.addSubview(self.backImageScrollView)
-//        self.backImageZoomableView.scrollView = self.backImageScrollView
+        //        self.backImageZoomableView.scrollView = self.backImageScrollView
         
         // Setup Image Views
         self.frontImageView = UIImageView(image: self.rCTImage!.imageFrontUIImage)
@@ -175,7 +203,8 @@ extension EditImageViewController {
 }
 
 
-extension EditImageViewController {
+extension EditImageViewController: PanGestureViewProtocol {
+    
     @objc func detectLongPress(recognizer: UILongPressGestureRecognizer) {
         
         if recognizer.state.rawValue == 1, rCTImage?.layout == Layout.pictureInPicture {
@@ -393,35 +422,35 @@ extension EditImageViewController {
         
         print("rctImageView width: \(rCTImageView.bounds.width), rctImageView height: \(rCTImageView.bounds.height)")
         
-        let frontImageZoomScaleWidth = frontImageZoomableView.bounds.width / (frontImageView.image?.size.width)!
-        let frontImageZoomScaleHeight = frontImageZoomableView.bounds.height / (frontImageView.image?.size.height)!
+        let frontImageZoomScaleWidth = frontImageZoomableView.bounds.width / (frontImageView.bounds.width)
+        let frontImageZoomScaleHeight = frontImageZoomableView.bounds.height / (frontImageView.bounds.height)
         let frontImageMinZoomScale: CGFloat
         
-        print("frontWidth: \(frontImageZoomableView.bounds.width) / \(frontImageView.image?.size.width) = \(frontImageZoomScaleWidth), frontHeight: \(frontImageZoomableView.bounds.height) / \(frontImageView.image?.size.height) = \(frontImageZoomScaleHeight)")
+        print("frontWidth: \(frontImageZoomableView.bounds.width) / \(frontImageView.bounds.width) = \(frontImageZoomScaleWidth), frontHeight: \(frontImageZoomableView.bounds.height) / \(frontImageView.bounds.height) = \(frontImageZoomScaleHeight)")
         
         frontImageZoomScaleWidth > frontImageZoomScaleHeight ? (frontImageMinZoomScale = frontImageZoomScaleWidth) : (frontImageMinZoomScale = frontImageZoomScaleHeight)
         
         frontImageScrollView.minimumZoomScale = frontImageMinZoomScale
         frontImageScrollView.maximumZoomScale = 5.0
         
-//        if frontImageScrollView.zoomScale < frontImageMinZoomScale || rCTImage?.layout == Layout.pictureInPicture {
-//            frontImageScrollView.zoomScale = frontImageMinZoomScale
-//        }
+        if frontImageScrollView.zoomScale < frontImageMinZoomScale || rCTImage?.layout == Layout.pictureInPicture {
+            frontImageScrollView.zoomScale = frontImageMinZoomScale
+        }
         
-        let backImageZoomScaleWidth = backImageZoomableView.bounds.width / (backImageView.image?.size.width)!
-        let backImageZoomScaleHeight = backImageZoomableView.bounds.height / (backImageView.image?.size.height)!
+        let backImageZoomScaleWidth = backImageZoomableView.bounds.width / (backImageView.bounds.width)
+        let backImageZoomScaleHeight = backImageZoomableView.bounds.height / (backImageView.bounds.height)
         let backImageMinZoomScale: CGFloat
         
-        print("backWidth: \(backImageZoomableView.bounds.width) / \(backImageView.image?.size.width ?? 0.0) = \(backImageZoomScaleWidth), backHeight: \(backImageZoomableView.bounds.height) / \(backImageView.image?.size.height ?? 0.0) = \(backImageZoomScaleHeight)")
+        print("backWidth: \(backImageZoomableView.bounds.width) / \(backImageView.bounds.width) = \(backImageZoomScaleWidth), backHeight: \(backImageZoomableView.bounds.height) / \(backImageView.bounds.height) = \(backImageZoomScaleHeight)")
         
         backImageZoomScaleWidth > backImageZoomScaleHeight ? (backImageMinZoomScale = backImageZoomScaleWidth) : (backImageMinZoomScale = backImageZoomScaleHeight)
         
         backImageScrollView.minimumZoomScale = backImageMinZoomScale
         backImageScrollView.maximumZoomScale = 5.0
         
-//        if backImageScrollView.zoomScale < backImageMinZoomScale || rCTImage?.layout == Layout.pictureInPicture {
-//            backImageScrollView.zoomScale = backImageMinZoomScale
-//        }
+        if backImageScrollView.zoomScale < backImageMinZoomScale || rCTImage?.layout == Layout.pictureInPicture {
+            backImageScrollView.zoomScale = backImageMinZoomScale
+        }
     }
     
     func updateLayoutViewForLayout() {

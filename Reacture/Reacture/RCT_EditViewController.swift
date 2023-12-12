@@ -83,10 +83,10 @@ class RCT_EditViewController: UIViewController {
 		optionSelected(option: .none)
 		doneUIButton.setTitleColor(UIColor.flipPicBlue(), for: .normal)
 
-		if let rCTImage {
-			frontImageView.image = rCTImage.imageFrontUIImage
-			backImageView.image = rCTImage.imageBackUIImage
-		} else {
+        if let rCTImage {
+            frontImageView.image = rCTImage.imageFrontUIImage
+            backImageView.image = rCTImage.imageBackUIImage
+        } else {
 			print("ERROR: rCTImage is nil!")
 		}
 		setupFilters()
@@ -852,7 +852,7 @@ extension RCT_EditViewController {
 		print("These are all Apple's available filters:\n\(properties)")
 		for filterName in properties {
 			let filter = CIFilter(name: filterName as String)
-			print("\(filter?.attributes)")
+            print("\(filter?.attributes ?? [:])")
 		}
 	}
 }

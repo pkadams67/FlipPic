@@ -7,8 +7,8 @@ class RCT_Image {
 	init(imageFront: UIImage, imageBack: UIImage, layout: Layout = Layout(rawValue: 0)!) {
 		imageFrontUIImage = imageFront
 		imageBackUIImage = imageBack
-        imageFrontCIImage = imageFront.ciImage!// CIImage(image: imageFront)!
-		imageBackCIImage = imageBack.ciImage! // CIImage(image: imageBack)!
+        imageFrontCIImage = CIImage(image: imageFront)! // imageFront.ciImage!// CIImage(image: imageFront)!
+		imageBackCIImage = CIImage(image: imageBack)! // imageBack.ciImage! // 
 		originalImageFrontCIImage = imageFrontCIImage.copy() as! CIImage
 		originalImageBackCIImage = imageBackCIImage.copy() as! CIImage
 		self.layout = layout

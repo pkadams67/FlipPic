@@ -21,10 +21,12 @@ class CameraViewController: UIViewController {
     
     var backCamera : AVCaptureDevice!
     var frontCamera : AVCaptureDevice!
+    var currentCaptureDevice : AVCaptureDevice!
     var backInput : AVCaptureInput!
     var frontInput : AVCaptureInput!
     var previewLayer : AVCaptureVideoPreviewLayer!
     var videoOutput : AVCaptureVideoDataOutput!
+    var photoOutput : AVCapturePhotoOutput!
     
     var rCTImage: RCT_Image? = nil
     
@@ -35,19 +37,57 @@ class CameraViewController: UIViewController {
     // Image Variables
     var frontImage = UIImage()
     var backImage = UIImage()
+    
+    // Tap to focus variables
+    var tapToFocusRecognizer = UITapGestureRecognizer()
+    var previewPointOfTap = CGPoint()
+    var captureDevicePointOfTap = CGPoint()
+    var focusBox = UIView()
+    var focusBoxInner = UIView()
+    var focusBoxSize = 65.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setMockImage()
+        
+        return
+        
         self.setupButtons()
+        
+        let path = Bundle.main.path(forResource: "photoShutter2", ofType: "caf")
+        let filePath = NSURL(fileURLWithPath: path!, isDirectory: false) as CFURL
+        AudioServicesCreateSystemSoundID(filePath, &soundID)
+        
+        self.setupFocusBox()
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkPermissions()
-        setupAndStartCaptureSession()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        checkPermissions()
+//        stopSession()
+//        setupAndStartCaptureSession()
+    }
+    
+    #warning("Remove below function")
+    
+    func setMockImage() {
+        let frontImage = UIImage(named: "mock_selfie") ?? self.frontImage
+        let backImage = UIImage(named: "mock_landscape") ?? self.frontImage
+//        let frontImageData = RCT_ImageController.imageToData(image: frontImage)!
+//        let backImageData = RCT_ImageController.imageToData(image: backImage)!
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+            let layout = Layout(rawValue: 0)!
+            self.rCTImage = RCT_ImageController.createRCTImageFromImages(imageFront: frontImage, imageBack: backImage, layout: layout)
+            let editVc = self.storyboard?.instantiateViewController(withIdentifier: "EditImageViewController") as! EditImageViewController
+            editVc.rCTImage = self.rCTImage
+            editVc.modalPresentationStyle = .fullScreen
+            self.present(editVc, animated: true)
+        }
+        
     }
     
     
@@ -80,6 +120,7 @@ class CameraViewController: UIViewController {
 }
 
 // MARK: - private methods
+
 extension CameraViewController {
     
     private func setupButtons() {
@@ -97,8 +138,9 @@ extension CameraViewController {
         flashOnOffButton.alpha = 1
     }
     
-    func setupAndStartCaptureSession(){
-        DispatchQueue.global(qos: .userInitiated).async{
+    private func setupAndStartCaptureSession() {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
             
             self.captureSession = AVCaptureSession()
             self.captureSession.beginConfiguration()
@@ -107,6 +149,7 @@ extension CameraViewController {
             if self.captureSession.canSetSessionPreset(.photo) {
                 self.captureSession.sessionPreset = .photo
             }
+            
             self.captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true
             
             //setup inputs
@@ -137,65 +180,81 @@ extension CameraViewController {
         }
     }
     
-    func setupInputs() {
+    private func stopSession() {
+        if captureSession != nil {
+            if captureSession.isRunning {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.captureSession.stopRunning()
+                    debugPrint("Session is Stop Runnging.")
+                }
+            }
+        }
+        
+    }
+    
+    private func setupInputs() {
         //get back camera
         if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
             backCamera = device
         } else {
-            //handle this appropriately for production purposes
-            fatalError("no back camera")
+            debugPrint("no back camera")
         }
         
         //get front camera
         if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
             frontCamera = device
         } else {
-            fatalError("no front camera")
+            debugPrint("no front camera")
         }
         
-        //now we need to create an input objects from our devices
+        // now we need to create an input objects from our devices
         guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
-            fatalError("could not create input device from back camera")
+            debugPrint("could not create input device from back camera")
+            return
         }
         backInput = bInput
         if !captureSession.canAddInput(backInput) {
-            fatalError("could not add back camera input to capture session")
+            debugPrint("could not add back camera input to capture session")
         }
         
         guard let fInput = try? AVCaptureDeviceInput(device: frontCamera) else {
-            fatalError("could not create input device from front camera")
+            debugPrint("could not create input device from front camera")
+            return
         }
         frontInput = fInput
         if !captureSession.canAddInput(frontInput) {
-            fatalError("could not add front camera input to capture session")
+            debugPrint("could not add front camera input to capture session")
         }
         
         //connect back camera input to session
         captureSession.addInput(backInput)
     }
     
-    
-    func setupPreviewLayer(){
+    private func setupPreviewLayer() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewView.layer.insertSublayer(previewLayer, below: switchCameraButton.layer)
         previewLayer.frame = self.previewView.layer.frame
+        previewLayer.videoGravity = .resizeAspectFill
+        previewView.addGestureRecognizer(tapToFocusRecognizer)
     }
     
-    func setupOutput(){
+   private func setupOutput() {
         videoOutput = AVCaptureVideoDataOutput()
         let videoQueue = DispatchQueue(label: "videoQueue", qos: .userInteractive)
         videoOutput.setSampleBufferDelegate(self, queue: videoQueue)
+//        self.photoOutput = AVCapturePhotoOutput()
+//        self.photoOutput.isHighResolutionCaptureEnabled = true
         
         if captureSession.canAddOutput(videoOutput) {
             captureSession.addOutput(videoOutput)
         } else {
-            fatalError("could not add video output")
+            debugPrint("could not add photo output")
         }
         
         videoOutput.connections.first?.videoOrientation = .portrait
     }
     
-    func switchCameraInput(){
+   private func switchCameraInput() {
         //don't let user spam the button, fun for the user, not fun for performance
         switchCameraButton.isUserInteractionEnabled = false
         
@@ -246,29 +305,84 @@ extension CameraViewController {
             debugPrint("@unknown")
         }
     }
+    
+    // MARK: - Focus box
+    
+    private func focusBox(centerPoint: CGPoint) {
+        
+        let focusBoxScaleTransform = CGAffineTransformMakeScale(0.75, 0.75)
+        let focusBoxScaleTransformShrink = CGAffineTransformMakeScale(0.77, 0.77)
+        focusBox.center = centerPoint
+        focusBox.bounds.size = CGSize(width: focusBoxSize, height: focusBoxSize)
+        focusBoxInner.bounds.size = CGSize(width: focusBoxSize, height: focusBoxSize)
+        focusBox.alpha = 1.0
+        focusBoxInner.backgroundColor = UIColor.white
+
+        UIView.animate(withDuration: 0.5, animations: { () in
+
+            self.focusBox.alpha = 1.0
+            self.focusBoxInner.alpha = 0.4
+            self.focusBox.transform = focusBoxScaleTransform
+            //            self.focusBoxInner.transform = focusBoxScaleTransform
+
+        }) { _ in
+
+            UIView.animate(withDuration: 0.5, animations: { () in
+
+                self.focusBox.transform = focusBoxScaleTransformShrink
+                self.focusBox.alpha = 0.0
+                self.focusBoxInner.alpha = 0.0
+
+            }) { _ in
+            }
+        }
+    }
+    
+    private func setupFocusBox() {
+        
+        tapToFocusRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapToFocus(_:)))
+        
+        // Initialize the Focal Box and Set Alpha Level to 0.0
+        focusBox = UIView(frame: CGRect(x: 0.0, y: 0.0, width: focusBoxSize, height: focusBoxSize))
+        focusBox.backgroundColor = UIColor.clear
+        focusBox.layer.borderWidth = 1.0
+        focusBox.layer.cornerRadius = CGFloat(focusBoxSize / 2)
+        focusBox.layer.borderColor = UIColor.white.cgColor
+        focusBox.alpha = 0.0
+        focusBoxInner = UIView(frame: CGRect(x: 0.0, y: 0.0, width: focusBoxSize, height: focusBoxSize))
+        focusBoxInner.center = CGPoint(x: focusBox.bounds.maxX / 2, y: focusBox.bounds.maxY / 2)
+        focusBoxInner.layer.cornerRadius = CGFloat((focusBoxSize - 2) / 2)
+        focusBoxInner.backgroundColor = UIColor.clear
+        focusBoxInner.alpha = 0.0
+        view.addSubview(focusBox)
+        focusBox.addSubview(focusBoxInner)
+    }
 }
 
 //MARK: - Button Actions
 
 extension CameraViewController {
     
-    @IBAction func shutterButtonTapped(_ sender: AnyObject) {
+    @IBAction func shutterButtonTapped(_ sender: UIButton) {
+//        let photoSettings = AVCapturePhotoSettings()
+//        self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
+//        
         self.takePicture = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            AudioServicesPlaySystemSound(soundID)
             self.isCapturedBackPhoto = true
             self.switchCameraInput()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
                 self.takePicture = true
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.switchCameraInput()
                     let layout = Layout(rawValue: 0)!
                     self.rCTImage = RCT_ImageController.createRCTImageFromImages(imageFront: self.frontImage, imageBack: self.backImage, layout: layout)
-//                    self.performSegue(withIdentifier: "ToEditView", sender: self)
                     let editVc = self.storyboard?.instantiateViewController(withIdentifier: "EditImageViewController") as! EditImageViewController
                     editVc.rCTImage = self.rCTImage
                     editVc.modalPresentationStyle = .fullScreen
-//                    editVc.setupController(rCTImage: self.rCTImage!)
                     self.present(editVc, animated: true)
                     // self.navigationController?.pushViewController(editVc, animated: true)
 //                    self.captureSesson.beginConfiguration()
@@ -279,8 +393,64 @@ extension CameraViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func iSightFlashButtonTapped(_ sender: UIButton) {
+        print("iSight Flash Button Tapped")
+        
+        if let device = AVCaptureDevice.default(for: .video) {
+            if device.hasFlash == true {
+                do {
+                    try device.lockForConfiguration()
+                } catch {
+                    print("Error: iSight Flash Button Tapped")
+                }
+                if device.isFlashActive == false {
+                    print("Turning Off iSight Flash")
+                    device.flashMode = AVCaptureDevice.FlashMode.on
+                    sender.isSelected = true
+
+                } else {
+                    print("Turning On iSight Flash")
+                    device.flashMode = AVCaptureDevice.FlashMode.off
+                    sender.isSelected = false
+                }
+                device.unlockForConfiguration()
+            }
+        }
         
     }
+    
+    // Setup Tap Gesture Recognizer
+    @objc func tapToFocus(_ recognizer: UIGestureRecognizer) {
+
+        previewPointOfTap = recognizer.location(in: view)
+        focusBox(centerPoint: previewPointOfTap)
+        captureDevicePointOfTap = previewLayer.captureDevicePointConverted(fromLayerPoint: previewPointOfTap)
+        
+        currentCaptureDevice = self.backCameraOn ? self.backCamera : self.frontCamera
+
+        if let focusDevice = currentCaptureDevice {
+            if focusDevice.isFocusPointOfInterestSupported {
+                do {
+                    try focusDevice.lockForConfiguration()
+                    focusDevice.focusPointOfInterest = captureDevicePointOfTap
+                    if focusDevice.isFocusModeSupported(.autoFocus) {
+                        focusDevice.focusMode = .autoFocus
+                    }
+                    focusDevice.unlockForConfiguration()
+                    print("Point in Capture Device: \(previewLayer.captureDevicePointConverted(fromLayerPoint: captureDevicePointOfTap))")
+
+                } catch {
+                    print("Lock for Configuration Unsuccessful \(error)")
+                }
+            }
+        }
+
+        print("Focus Mode: \(currentCaptureDevice!.focusMode.rawValue)")
+        print("Point in previewView: \(previewPointOfTap)")
+    }
+    
 }
 
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -313,4 +483,42 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
         
+}
+
+extension CameraViewController: AVCapturePhotoCaptureDelegate {
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if (error != nil) {
+            debugPrint("Could not capture still image: %@", error?.localizedDescription as Any)
+            return
+        }
+        
+        let newPhoto: Data? = photo.fileDataRepresentation()
+        
+        if let data = newPhoto {
+            let image = UIImage(data: data) ?? UIImage()
+            
+            if self.isCapturedBackPhoto {
+                self.frontImage = image
+                self.switchCameraInput()
+                self.isCapturedBackPhoto = false
+                DispatchQueue.main.async {
+                    let layout = Layout(rawValue: 0)!
+                    self.rCTImage = RCT_ImageController.createRCTImageFromImages(imageFront: self.frontImage, imageBack: self.backImage, layout: layout)
+                    let editVc = self.storyboard?.instantiateViewController(withIdentifier: "EditImageViewController") as! EditImageViewController
+                    editVc.rCTImage = self.rCTImage
+                    editVc.modalPresentationStyle = .fullScreen
+                    self.present(editVc, animated: true)
+                }
+            } else {
+                self.backImage = image
+                self.isCapturedBackPhoto = true
+                self.switchCameraInput()
+                self.shutterButtonTapped(UIButton())
+            }
+                        
+        }
+        
+    }
+    
 }
