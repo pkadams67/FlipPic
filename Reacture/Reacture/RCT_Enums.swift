@@ -85,4 +85,25 @@ enum Filter: Int {
 				return "Count"
 		}
 	}
+    
+    var filterName: String {
+        switch self {
+            case .none:
+                return "None"
+            case .fade:
+                return "CIPhotoEffectFade"
+            case .chrome:
+                return "CIPhotoEffectChrome"
+            case .poster:
+                return "CIColorPosterize"
+            case .comic:
+                return "CIComicEffect"
+            case .tonal:
+                return "CIPhotoEffectTonal"
+            case .noir:
+                return "CIPhotoEffectNoir"
+            case .count:
+                return "Count"
+        }
+    }
 }

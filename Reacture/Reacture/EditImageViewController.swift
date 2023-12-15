@@ -10,21 +10,17 @@ import UIKit
 
 class EditImageViewController: UIViewController {
     
-    @IBOutlet var toolbar: UIToolbar!
-    @IBOutlet var toolbarLayoutOption: UIBarButtonItem!
-    @IBOutlet var toolbarFilterOption: UIBarButtonItem!
     @IBOutlet var containerView: UIView!
-    @IBOutlet var layoutButton: UIBarButtonItem!
-    @IBOutlet var filterButton: UIBarButtonItem!
     @IBOutlet var RCT_ImageViewBackgroundView: UIView!
     @IBOutlet var rCTImageView: UIView!
     @IBOutlet var topBar: UIStackView!
-    @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var doneUIButton: UIButton!
-    @IBOutlet var swapImagesBarButton: UIBarButtonItem!
     @IBOutlet var swapImagesUIButton: UIButton!
+    @IBOutlet weak var layoutButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
     
     var rCTImage: RCT_Image?
+    var imagesAreSwapped = false
     
     var frontImageView = UIImageView()
     var backImageView = UIImageView()
@@ -36,20 +32,22 @@ class EditImageViewController: UIViewController {
     var backImageScrollView = UIScrollView()
     
     var containerViewController: RCT_ContainerViewController?
+    
+    // MARK: - Filter Variables
+
+    let context = CIContext()
+    var originalFrontImage: UIImage?
+    var originalBackImage: UIImage?
+    var arrayOfFilterButtonImageViews: [UIImageView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupView()
         
         if let rCTImage = self.rCTImage {
             self.setupController(rCTImage: rCTImage)
         }
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.setupView()
         
     }
 
@@ -67,25 +65,30 @@ extension EditImageViewController {
     @IBAction func shareButtonTapped(_ sender: AnyObject) {
         frontImageZoomableView.removeIsMovableView()
         let imageToSend = imageCapture()
-        let shareTextRCTImage = "Shared with @FlipPic1 “Your Front/Back Camera App”"
+        let text = "Shared with @FlipPic1 “Your Front/Back Camera App”"
         print("Sending Image")
-        let shareViewController = UIActivityViewController(activityItems: [imageToSend, shareTextRCTImage], applicationActivities: nil)
+        let items: [Any] = [text, imageToSend as Any]
+        let shareViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         shareViewController.popoverPresentationController?.sourceView = view
         present(shareViewController, animated: true, completion: nil)
     }
     
     @IBAction func doneButtonTapped(_ sender: AnyObject) {
-//        optionSelected(option: .none)
+        optionSelected(option: .none)
     }
     
     @IBAction func layoutButtonTapped(_ sender: AnyObject) {
         print("Layout Button Tapped")
-//        optionSelected(option: OptionType.layout)
+        optionSelected(option: OptionType.layout)
     }
 
     @IBAction func filterButtonTapped(sender: AnyObject) {
         print("Filter Button Tapped")
-//        optionSelected(option: OptionType.filters)
+        optionSelected(option: OptionType.filters)
+    }
+    
+    @IBAction func swapImageButtonTapped(_ sender: AnyObject) {
+        swapImages()
     }
     
 }
@@ -95,14 +98,95 @@ extension EditImageViewController {
 extension EditImageViewController {
     
     private func setupView() {
-        
-//        toolbarLayoutOption.tintColor = UIColor.white
-//        toolbarFilterOption.tintColor = UIColor.white
-        toolbar.clipsToBounds = true
+
         containerViewController = children.first! as? RCT_ContainerViewController
-//        containerViewController?.delegate = self
-//        optionSelected(option: .none)
+        containerViewController?.delegate = self
+        optionSelected(option: .none)
         doneUIButton.setTitleColor(UIColor.flipPicBlue(), for: .normal)
+
+        if let rCTImage {
+            frontImageView.image = rCTImage.imageFrontUIImage
+            backImageView.image = rCTImage.imageBackUIImage
+        } else {
+            print("ERROR: rCTImage is nil!")
+        }
+        
+        setupFilters()
+        rCTImageView.frame.size = CGSize(width: view.bounds.width, height: view.bounds.width * 1.3)
+        updateWithLayout(layout: rCTImage!.layout)
+        containerViewController?.reloadCollection()
+    }
+    
+    private func optionSelected(option: OptionType) {
+        
+        var optionToApply = option
+        let currentOptionSelected = containerViewController!.optionSelected
+        
+        self.filterButton.tintColor = .white
+        self.layoutButton.tintColor = .white
+        self.doneUIButton.tintColor = .white
+        self.swapImagesUIButton.tintColor = .white
+
+        switch option {
+            
+        case .layout:
+            
+            self.layoutButton.tintColor = UIColor.flipPicGreen()
+            animateContainerView(hide: false)
+            
+        case .filters:
+            
+            self.filterButton.tintColor = UIColor.flipPicGreen()
+            animateContainerView(hide: false)
+            
+        case .none:
+            
+            optionToApply = .none
+            // hide containerView
+            animateContainerView(hide: true)
+        }
+
+        // set optionSelected of containerViewController = .Layout
+        containerViewController?.optionSelected = optionToApply
+
+        if optionToApply != .none {
+            // Reload Collection View Data
+            containerViewController?.reloadCollection()
+        }
+
+        // remove isMoveableView if it is applied.
+        frontImageZoomableView.removeIsMovableView()
+    }
+    
+    private func animateContainerView(hide: Bool, additionalCode: (() -> Void) = {}) {
+        if hide {
+            doneUIButton.isHidden = hide
+            swapImagesUIButton.isHidden = hide
+
+            UIView.animate(withDuration: 0.4, animations: { () in
+                self.containerView.alpha = 0.0
+                self.containerView.isHidden = hide
+                self.topBar.alpha = 1.0
+                self.topBar.isHidden = !hide
+
+            }, completion: { _ in
+            })
+
+        } else {
+
+            doneUIButton.isHidden = hide
+            swapImagesUIButton.isHidden = hide
+
+            UIView.animate(withDuration: 0.4, animations: { () in
+                self.containerView.alpha = 1.0
+                self.containerView.isHidden = hide
+                self.topBar.alpha = 0.0
+                self.topBar.isHidden = !hide
+
+            }, completion: { _ in
+
+            })
+        }
     }
     
     private func setupController(rCTImage: RCT_Image) {
@@ -200,8 +284,52 @@ extension EditImageViewController {
         
         return image
     }
-}
+    
+    // MARK: - swap images
+    
+    func swapImages(withAnimation: Bool = true) {
 
+        print("frontImageZoom: \(frontImageScrollView.zoomScale); backImageZoom: \(backImageScrollView.zoomScale)")
+        print("frontImageMinZoom: \(frontImageScrollView.minimumZoomScale); backImageMinZoom: \(backImageScrollView.minimumZoomScale)")
+
+        imagesAreSwapped = !imagesAreSwapped
+        print("Swap Image Button Tapped")
+        let currentBackImage = rCTImage?.imageBackUIImage
+        let currentFrontImage = rCTImage?.imageFrontUIImage
+        rCTImage?.imageBackUIImage = currentFrontImage!
+        rCTImage?.imageFrontUIImage = currentBackImage!
+        let tempImage = originalBackImage
+        originalBackImage = originalFrontImage
+        originalFrontImage = tempImage
+
+        if withAnimation {
+            frontImageView.alpha = 0
+            backImageView.alpha = 0
+            frontImageView.image = rCTImage?.imageFrontUIImage
+            backImageView.image = rCTImage?.imageBackUIImage
+
+            centerImagesOnYAxis()
+            frontImageScrollView.zoomScale = frontImageScrollView.minimumZoomScale
+            backImageScrollView.zoomScale = backImageScrollView.minimumZoomScale
+
+            UIView.animate(withDuration: 0.5, animations: { () in
+                self.frontImageView.alpha = 1
+                self.backImageView.alpha = 1
+            }, completion: { _ in
+            })
+        } else {
+            frontImageView.image = rCTImage?.imageFrontUIImage
+            backImageView.image = rCTImage?.imageBackUIImage
+        }
+    }
+
+    func clearSwappedImages() {
+        if imagesAreSwapped {
+            swapImages(withAnimation: false)
+        }
+    }
+
+}
 
 extension EditImageViewController: PanGestureViewProtocol {
     
@@ -284,12 +412,6 @@ extension EditImageViewController: PanGestureViewProtocol {
 // MARK: - Layout methods
 
 extension EditImageViewController {
-    
-    func clearSwappedImages() {
-//        if imagesAreSwapped {
-//            swapImages(withAnimation: false)
-//        }
-    }
     
     func clearMasks() {
         frontImageZoomableView.maskLayout = MaskLayout.none
@@ -454,28 +576,28 @@ extension EditImageViewController {
     }
     
     func updateLayoutViewForLayout() {
-        /* adjustLayoutView.isHidden = false
-        let invisibleLineWidth: CGFloat = 25.0
-        
-        switch rCTImage!.layout {
-                
-            case .topBottom:
-                adjustLayoutView.frame = CGRect(x: 0.0, y: 0.0, width: rCTImageView.frame.width, height: invisibleLineWidth)
-                adjustLayoutView.center = CGPoint(x: rCTImageView.bounds.maxX / 2, y: rCTImageView.bounds.maxY / 2)
-                adjustLayoutVisibleView.frame = CGRect(x: 0.0, y: 0.0, width: rCTImageView.bounds.width, height: RCT_EditViewController.lineWidth)
-                adjustLayoutVisibleView.center = CGPoint(x: adjustLayoutView.bounds.maxX / 2, y: adjustLayoutView.bounds.maxY / 2)
-                
-            case .leftRight:
-                adjustLayoutView.frame = CGRect(x: 0.0, y: 0.0, width: invisibleLineWidth, height: rCTImageView.frame.height)
-                adjustLayoutView.center = CGPoint(x: rCTImageView.bounds.maxX / 2, y: rCTImageView.bounds.maxY / 2)
-                adjustLayoutVisibleView.frame = CGRect(x: 0.0, y: 0.0, width: RCT_EditViewController.lineWidth, height: rCTImageView.bounds.height)
-                adjustLayoutVisibleView.center = CGPoint(x: adjustLayoutView.bounds.maxX / 2, y: adjustLayoutView.bounds.maxY / 2)
-                
-            default:
-                adjustLayoutView.isHidden = true
-        }
-        
-        rCTImageView.bringSubviewToFront(adjustLayoutView) */
+//        adjustLayoutView.isHidden = false
+//        let invisibleLineWidth: CGFloat = 25.0
+//
+//        switch rCTImage!.layout {
+//
+//            case .topBottom:
+//                adjustLayoutView.frame = CGRect(x: 0.0, y: 0.0, width: rCTImageView.frame.width, height: invisibleLineWidth)
+//                adjustLayoutView.center = CGPoint(x: rCTImageView.bounds.maxX / 2, y: rCTImageView.bounds.maxY / 2)
+//                adjustLayoutVisibleView.frame = CGRect(x: 0.0, y: 0.0, width: rCTImageView.bounds.width, height: RCT_EditViewController.lineWidth)
+//                adjustLayoutVisibleView.center = CGPoint(x: adjustLayoutView.bounds.maxX / 2, y: adjustLayoutView.bounds.maxY / 2)
+//
+//            case .leftRight:
+//                adjustLayoutView.frame = CGRect(x: 0.0, y: 0.0, width: invisibleLineWidth, height: rCTImageView.frame.height)
+//                adjustLayoutView.center = CGPoint(x: rCTImageView.bounds.maxX / 2, y: rCTImageView.bounds.maxY / 2)
+//                adjustLayoutVisibleView.frame = CGRect(x: 0.0, y: 0.0, width: RCT_EditViewController.lineWidth, height: rCTImageView.bounds.height)
+//                adjustLayoutVisibleView.center = CGPoint(x: adjustLayoutView.bounds.maxX / 2, y: adjustLayoutView.bounds.maxY / 2)
+//
+//            default:
+//                adjustLayoutView.isHidden = true
+//        }
+//
+//        rCTImageView.bringSubviewToFront(adjustLayoutView)
     }
 }
 
@@ -491,6 +613,187 @@ extension EditImageViewController: UIScrollViewDelegate {
         
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         print(#function)
+    }
+    
+}
+
+// MARK: - RCT_ContainerViewControllerProtocol
+
+extension EditImageViewController: RCT_ContainerViewControllerProtocol {
+
+    func itemSelected(indexPath: IndexPath, optionSelected: OptionType) {
+        switch optionSelected {
+            case .layout:
+                let layoutSelected = Layout(rawValue: indexPath.item)!
+                updateWithLayout(layout: layoutSelected)
+            case .filters:
+                let filterSelected = Filter(rawValue: indexPath.item)!
+                updateWithFilter(filter: filterSelected)
+            case .none:
+                break
+        }
+    }
+}
+
+// MARK: Filter Methods
+
+extension EditImageViewController {
+
+    func updateWithFilter(filter: Filter) {
+        frontImageZoomableView.removeIsMovableView()
+        
+        if rCTImage != nil {
+            
+            switch filter {
+                
+            case .none:
+                print("None Filter Selected")
+                frontImageView.image = originalFrontImage
+                backImageView.image = originalBackImage
+                
+            case .tonal, .noir, .fade, .chrome, .comic, .poster:
+                performFilter(filter: filter)
+                
+            case .count:
+                print("Count Enum")
+                
+            }
+        }
+    }
+
+    func setupFilters() {
+        if let rCTImage {
+            originalFrontImage = rCTImage.imageFrontUIImage
+            originalBackImage = rCTImage.imageBackUIImage
+        }
+        setupFilterThumbnails()
+    }
+
+    func setupFilterThumbnails() {
+
+        // TODO: Put on Background Thread (asynch)
+
+        let filterButtonsCount = Filter.count.rawValue
+        print("Filter Button Count is: \(Filter.count.rawValue)")
+
+        for filterButtonIndex in 0 ... filterButtonsCount {
+            if filterButtonIndex == filterButtonsCount {
+                // All Button Images Complete
+                // Pass to Container View to populate buttons and reload
+
+                containerViewController?.loadFilterButtonImages(arrayOfImageViews: arrayOfFilterButtonImageViews)
+            }
+            let filterRawValue = filterButtonIndex
+            if let filterSelected = Filter(rawValue: filterRawValue) {
+                filterAllThumbnails(filter: filterSelected)
+            }
+        }
+    }
+
+    func filterAllThumbnails(filter: Filter) {
+
+        if rCTImage != nil {
+            performThumbnailFilter(filter: filter)
+        }
+        
+    }
+
+    func performThumbnailFilter(filter: Filter) {
+        var filterName = filter.filterName
+        var thumbnailScale: CGFloat?
+        var orientation: UIImage.Orientation?
+        var beginFrontImage: CIImage?
+
+        let thumbnailFrame = CGRect(x: 0, y: 0, width: 100, height: 100)
+
+        if let frontImage = originalFrontImage {
+            orientation = frontImage.imageOrientation
+            let height = frontImage.size.height
+            _ = frontImage.size.width
+            thumbnailScale = thumbnailFrame.height / height // May Need Aspect Adjustment to Make Square Thumbnail
+            // Getting CI Image
+            beginFrontImage = CIImage(image: frontImage)
+        }
+
+        var options: [String: AnyObject]? = [:]
+        if filter == .none {
+            filterName = "CISepiaTone"
+            options = ["inputIntensity": 0 as AnyObject]
+        }
+
+        // Getting Output Using Filter Name Parameter and Options
+
+        // Front Image:
+        
+        if let outputImage = beginFrontImage?.applyingFilter(filterName, parameters: options!) {
+            print("Front Thumbnail Image Name: \(filterName)")
+            let cGImage: CGImage = context.createCGImage(outputImage, from: outputImage.extent)!
+            let image = UIImage(cgImage: cGImage, scale: thumbnailScale!, orientation: orientation!)
+            // Completed UI Images Update on RCT_Image Model
+            let filterButtonImageView = UIImageView()
+            filterButtonImageView.frame.size = thumbnailFrame.size
+            filterButtonImageView.contentMode = .scaleAspectFill // Square?
+            filterButtonImageView.image = image
+            // Apending to Array of Image Buttons
+            arrayOfFilterButtonImageViews.append(filterButtonImageView)
+        }
+    }
+
+    func performFilter(filter: Filter) {
+        var scale: CGFloat?
+        var frontImageOrientation: UIImage.Orientation?
+        var backImageOrientation: UIImage.Orientation?
+        var beginFrontImage: CIImage?
+        var beginBackImage: CIImage?
+
+        if let frontImage = originalFrontImage {
+            scale = frontImage.scale
+            frontImageOrientation = frontImage.imageOrientation
+
+            // Getting CI Image
+            beginFrontImage = CIImage(image: frontImage)
+        }
+        if let backImage = originalBackImage {
+            // Getting CI Image
+            backImageOrientation = backImage.imageOrientation
+            beginBackImage = CIImage(image: backImage)
+        }
+
+        var options: [String: AnyObject] = [:]
+        if filter.filterName == "CISepiaTone" {
+            options = ["inputIntensity": 0.8 as AnyObject]
+        }
+
+        // Getting Output Using Filter Name Parameter and Options
+
+        // Front Image:
+        if let outputImage = beginFrontImage?.applyingFilter(filter.filterName, parameters: options) {
+            print("We Have a Front Output Image")
+            let cGImage: CGImage = context.createCGImage(outputImage, from: outputImage.extent)!
+            rCTImage?.imageFrontUIImage = UIImage(cgImage: cGImage, scale: scale!, orientation: frontImageOrientation!)
+            // Completed UI Images Update on RCT_Image Model
+            // Reloading Front Image View
+            frontImageView.image = rCTImage!.imageFrontUIImage
+        }
+
+        // Back Image:
+        if let outputImage = beginBackImage?.applyingFilter(filter.filterName, parameters: options) {
+            print("We Have a Back Output Image")
+            let cGImage: CGImage = context.createCGImage(outputImage, from: outputImage.extent)!
+            rCTImage?.imageBackUIImage = UIImage(cgImage: cGImage, scale: scale!, orientation: backImageOrientation!)
+            // Completed UI Images Update on RCT_Image Model
+            // Reloading Back Image View
+            backImageView.image = rCTImage!.imageBackUIImage
+        }
+    }
+
+    func logAllFilters() {
+        let properties = CIFilter.filterNames(inCategory: kCICategoryStillImage)
+        print("These are all Apple's available filters:\n\(properties)")
+        for filterName in properties {
+            let filter = CIFilter(name: filterName as String)
+            print("\(filter?.attributes ?? [:])")
+        }
     }
     
 }

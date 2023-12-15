@@ -49,9 +49,9 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setMockImage()
-        
-        return
+//        self.setMockImage()
+//        
+//        return
         
         self.setupButtons()
         

@@ -571,10 +571,6 @@ class RCT_EditViewController: UIViewController {
 
 	func animateContainerView(hide: Bool, additionalCode: (() -> Void) = {}) {
 		if hide {
-			//            self.doneButton.enabled = false
-			//            self.doneButton.tintColor = UIColor.clear
-			//            self.swapImagesBarButton.enabled = false
-			//            self.swapImagesBarButton.tintColor = UIColor.clear
 			doneUIButton.isHidden = hide
 			swapImagesUIButton.isHidden = hide
 
@@ -588,11 +584,6 @@ class RCT_EditViewController: UIViewController {
 			})
 
 		} else {
-
-			//            self.doneButton.enabled = true
-			//            self.doneButton.tintColor = nil
-			//            self.swapImagesBarButton.enabled = true
-			//            self.swapImagesBarButton.tintColor = UIColor.white
 			doneUIButton.isHidden = hide
 			swapImagesUIButton.isHidden = hide
 
@@ -601,11 +592,11 @@ class RCT_EditViewController: UIViewController {
 				self.containerView.isHidden = hide
 				self.topBar.alpha = 0.0
 				self.topBar.isHidden = !hide
-
 			}, completion: { _ in
 
 			})
 		}
+        
 	}
 }
 
