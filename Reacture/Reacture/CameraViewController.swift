@@ -259,6 +259,7 @@ extension CameraViewController {
         switchCameraButton.isUserInteractionEnabled = false
         
         //reconfigure the input
+       // FIXME: Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
         captureSession.beginConfiguration()
         if backCameraOn {
             captureSession.removeInput(backInput)

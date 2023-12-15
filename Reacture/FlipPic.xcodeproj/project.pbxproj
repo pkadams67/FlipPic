@@ -414,14 +414,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 2T8ZX7X76S;
+				DEVELOPMENT_TEAM = 4M47725ZWP;
 				INFOPLIST_FILE = Reacture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.priyanshi.pkadams67.Reacture;
+				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
@@ -435,14 +435,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2T8ZX7X76S;
+				DEVELOPMENT_TEAM = 4M47725ZWP;
 				INFOPLIST_FILE = Reacture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.priyanshi.pkadams67.Reacture;
+				PRODUCT_BUNDLE_IDENTIFIER = io.pkadams67.Reacture;
 				PRODUCT_NAME = FlipPic;
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
