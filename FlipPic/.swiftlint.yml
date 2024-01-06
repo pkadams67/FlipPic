@@ -1,0 +1,63 @@
+# https://github.com/realm/SwiftLint
+# https://realm.github.io/SwiftLint/index.html
+# https://realm.github.io/SwiftLint/rule-directory.html
+
+disabled_rules: # rule identifiers to exclude from running
+  - cyclomatic_complexity
+  - discarded_notification_center_observer
+  - force_cast
+  - force_unwrapping
+  - line_length
+  - nesting
+  - switch_case_alignment
+  - todo
+  - trailing_whitespace
+  - type_body_length
+  - type_name
+
+opt_in_rules:
+  - force_try
+  - function_body_length
+  - function_parameter_count
+  - identifier_name
+  - large_tuple
+  - multiple_closures_with_trailing_closure
+  - shorthand_operator
+  - trailing_comma
+  - vertical_parameter_alignment
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - FlipPic
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+# - Pods
+# - R.generated.swift
+
+file_length:
+  warning: 2000
+  error: 3000
+
+large_tuple:
+  warning: 4
+  error: 5
+
+shorthand_operator: warning
+
+function_body_length:
+  warning: 300
+  error: 400
+
+function_parameter_count:
+  warning: 15
+  error: 20
+
+identifier_name:
+  allowed_symbols: "_"
+  excluded: # excluded via string array
+    - GlobalAPIKey
+    - URL
+    - id
+    - me
+    - na
+
+reporter: "xcode"
